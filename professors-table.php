@@ -1,4 +1,10 @@
 <!doctype html>
+
+<?php 
+session_start();
+include "connect.php";
+?>
+
 <html class="fixed">
 	<head>
 
@@ -91,17 +97,28 @@
 								<table class="table table-bordered table-striped mb-none" id="datatable-editable">
 									<thead>
 										<tr>
-											<th>Rendering engine</th>
-											<th>Browser</th>
-											<th>Platform(s)</th>
+											<th>Profesor ID</th>
+											<th>Full Name</th>
+											<th>Rank</th>
 											<th>Actions</th>
 										</tr>
 									</thead>
 									<tbody>
+<!-- //////////////////////////////////////////////////////////// -->
+									<?php 
+									$sql1 = "SELECT * FROM profesors";
+									$result1 = mysqli_query($link,$sql1);
+									while ($row = mysqli_fetch_array($result1)) {
+									$profID = $row['profID'];
+									$rank = $row['rank'];
+									$fname = $row['fname'];
+									$lname = $row['lname'];
+									?>
+<!-- //////////////////////////////////////////////////////////// -->
 										<tr class="gradeX">
-											<td>Misc</td>
-											<td>Lynx</td>
-											<td>Text only</td>
+										<td><?php echo $row['profID']; ?></td>
+											<td><?php echo $row['fname'] ," " ,$row['lname']; ?></td>
+											<td><?php echo $row['rank']; ?></td>
 											<td class="actions">
 												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
 												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
@@ -109,39 +126,7 @@
 												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 											</td>
 										</tr>
-										<tr class="gradeC">
-											<td>Misc</td>
-											<td>IE Mobile</td>
-											<td>Windows Mobile 6</td>
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										<tr class="gradeC">
-											<td>Misc</td>
-											<td>PSP browser</td>
-											<td>PSP</td>
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										<tr class="gradeU">
-											<td>Other browsers</td>
-											<td>All others</td>
-											<td>-</td>
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
+										<?php }?>	
 									</tbody>
 								</table>
 							</div>
