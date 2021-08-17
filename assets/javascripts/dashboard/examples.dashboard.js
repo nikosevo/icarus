@@ -224,7 +224,7 @@
 				x: -60,
 				y: 25
 			},
-			defaultTheme: false
+			defaultTheme: true
 		}
 	});
 
@@ -310,6 +310,30 @@
 		}
 
 		update();
+	})();
+
+		/*
+	Flot: Pie
+	*/
+	(function() {
+		var plot = $.plot('#flotPie', flotPieData, {
+			series: {
+				pie: {
+					show: true,
+					combine: {
+						color: 'red',
+						threshold: 0.1
+					}
+				}
+			},
+			legend: {
+				show: false
+			},
+			grid: {
+				hoverable: true,
+				clickable: false
+			}
+		});
 	})();
 
 	/*

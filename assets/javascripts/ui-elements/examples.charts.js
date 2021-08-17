@@ -10,9 +10,9 @@
 		var plot = $.plot('#flotBasic', flotBasicData, {
 			series: {
 				lines: {
-					show: true,
-					fill: true,
-					lineWidth: 1,
+					show: false,
+					fill: false,
+					lineWidth: 4,
 					fillColor: {
 						colors: [{
 							opacity: 0.45
@@ -22,7 +22,7 @@
 					}
 				},
 				points: {
-					show: true
+					show: false
 				},
 				shadowSize: 0
 			},
@@ -184,7 +184,7 @@
 				pie: {
 					show: true,
 					combine: {
-						color: '#999',
+						color: 'red',
 						threshold: 0.1
 					}
 				}
