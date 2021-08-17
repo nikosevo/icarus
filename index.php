@@ -23,9 +23,9 @@
 		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
 		<!-- Specific Page Vendor CSS -->
-		<link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-		<link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
-		<link rel="stylesheet" href="assets/vendor/morris/morris.css" />
+		<link rel="stylesheet" href="/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+		<link rel="stylesheet" href="/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+		<link rel="stylesheet" href="/assets/vendor/morris/morris.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -69,119 +69,168 @@
 						</div>
 					</header>
 
-						<div class="row">
-						<div class="col-md-6">
-							<section class="panel">
-								<header class="panel-heading">
-									<div class="panel-actions">
-										<a href="#" class="fa fa-caret-down"></a>
-										<a href="#" class="fa fa-times"></a>
-									</div>
 
-									<h2 class="panel-title">Best Seller</h2>
-									<p class="panel-subtitle">Customize the graphs as much as you want, there are so many options and features to display information using JSOFT Admin Template.</p>
-								</header>
-								<div class="panel-body">
-
-									<!-- Flot: Basic -->
-									<div class="chart chart-md" id="flotDashBasic"></div>
-									<script>
-
-										var flotDashBasicData = [{
-											data: [
-												[0, 170],
-												[1, 169],
-												[2, 173],
-												[3, 188],
-												[4, 147],
-												[5, 113],
-												[6, 128],
-												[7, 169],
-												[8, 173],
-												[9, 128],
-												[10, 128]
-											],
-											label: "Series 1",
-											color: "#0088cc"
-										}, {
-											data: [
-												[0, 115],
-												[1, 124],
-												[2, 114],
-												[3, 121],
-												[4, 115],
-												[5, 83],
-												[6, 102],
-												[7, 148],
-												[8, 147],
-												[9, 103],
-												[10, 113]
-											],
-											label: "Series 2",
-											color: "#2baab1"
-										}, {
-											data: [
-												[0, 70],
-												[1, 69],
-												[2, 73],
-												[3, 88],
-												[4, 47],
-												[5, 13],
-												[6, 28],
-												[7, 69],
-												[8, 73],
-												[9, 28],
-												[10, 28]
-											],
-											label: "Series 3",
-											color: "#734ba9"
-										}];
-
-										// See: assets/javascripts/dashboard/examples.dashboard.js for more settings.
-
-									</script>
-
+					<!-- basic -->
+					<div class="col-md-6">
+						<section class="panel">
+							<header class="panel-heading">
+								<div class="panel-actions">
+									<a href="#" class="fa fa-caret-down"></a>
+									<a href="#" class="fa fa-times"></a>
 								</div>
-							</section>
-						</div>
-						<div class="col-md-6">
-							<section class="panel">
-								<header class="panel-heading">
-									<div class="panel-actions">
-										<a href="#" class="fa fa-caret-down"></a>
-										<a href="#" class="fa fa-times"></a>
-									</div>
-									<h2 class="panel-title">Server Usage</h2>
-									<p class="panel-subtitle">It's easy to create custom graphs on JSOFT Admin Template, there are several graph types that you can use, such as lines, bars, pie charts, etc...</p>
-								</header>
-								<div class="panel-body">
 
-									<!-- Flot: Curves -->
-									<div class="chart chart-md" id="flotDashRealTime"></div>
+								<h2 class="panel-title">Undeperfoming subject</h2>
+								<p class="panel-subtitle">Here are the top 3 underperforming subjects in your university and their average grade per year. </p>
+							</header>
+							
+							<div class="panel-body">
+			
 
+								<!-- Flot: Basic -->
+								<div class="chart chart-md" id="flotDashBasic"></div>
+								<script type="text/javascript">
+
+									var flotDashBasicData = [{
+										data: [
+											[0, 100],
+											[1, 19],
+											[2, 17],
+											[3, 18],
+											[4, 147],
+											[5, 13],
+											[6, 128],
+											[7, 169],
+											[8, 173],
+											[9, 128],
+											[10, 128]
+										],
+										label: "Series 1",
+										color: "#0088cc"
+									}, {
+										data: [
+											[0, 115],
+											[1, 124],
+											[2, 114],
+											[3, 121],
+											[4, 115],
+											[5, 83],
+											[6, 102],
+											[7, 148],
+											[8, 147],
+											[9, 103],
+											[10, 113]
+										],
+										label: "Series 2",
+										color: "#2baab1"
+									}, {
+										data: [
+											[0, 70],
+											[1, 69],
+											[2, 73],
+											[3, 88],
+											[4, 47],
+											[5, 13],
+											[6, 28],
+											[7, 69],
+											[8, 73],
+											[9, 28],
+											[10, 28]
+										],
+										label: "Series 3",
+										color: "#734ba9"
+									}];
+
+									// See: assets/javascripts/dashboard/examples.dashboard.js for more settings.
+
+								</script>
+
+							</div>
+						</section>
+					</div>
+					<!-- ser ver smt chart-->
+					<div class="col-md-6">
+						<section class="panel">
+							<header class="panel-heading">
+								<div class="panel-actions">
+									<a href="#" class="fa fa-caret-down"></a>
+									<a href="#" class="fa fa-times"></a>
 								</div>
-							</section>
-						</div>
+								<h2 class="panel-title">Server Usage</h2>
+								<p class="panel-subtitle">See how many people are currently logged in at your facility's webpage.</p>
+							</header>
+							<div class="panel-body">
+
+								<!-- Flot: Curves -->
+								<div class="chart chart-md" id="flotDashRealTime"></div>
+
+							</div>
+						</section>
+					</div>
+					<!-- pie chart -->
+					<div class="col-md-6">
+						<section class="panel">
+							<header class="panel-heading">
+								<div class="panel-actions">
+									<a href="#" class="fa fa-caret-down"></a>
+									<a href="#" class="fa fa-times"></a>
+								</div>
+				
+								<h2 class="panel-title">Your university</h2>
+								<p class="panel-subtitle">Find out the percentage of the Teachers,Students and admins in your university</p>
+							</header>
+							<div class="panel-body">
+				
+								<!-- Flot: Pie -->
+								<div class="chart chart-md" id="flotPie"></div>
+								<script type="text/javascript">
+				
+									var flotPieData = [{
+										label: "Students",
+										data: [
+											[1, 60]
+										],
+										color: '#0088cc'
+									}, {
+										label: "Professors",
+										data: [
+											[1, 10]
+										],
+										color: '#2baab1'
+									}, {
+										label: "Administrators",
+										data: [
+											[1, 15]
+										],
+										color: '#734ba9'
+									}];
+				
+									// See: assets/javascripts/ui-elements/examples.charts.js for more settings.
+				
+								</script>
+				
+							</div>
+						</section>
 					</div>
 
 					<!-- start: page -->
 					<div class="row">
-						<div class="col-md-6 col-lg-12 col-xl-6">
+						<div class="col-md-5 col-lg-12 col-xl-6">
 							<section class="panel">
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-8">
 											<div class="chart-data-selector" id="salesSelectorWrapper">
 												<h2>
-													Sales:
+													Teachers:
 													<strong>
 														<select class="form-control" id="salesSelector">
-															<option value="JSOFT Admin" selected>JSOFT Admin</option>
-															<option value="JSOFT Drupal" >JSOFT Drupal</option>
-															<option value="JSOFT Wordpress" >JSOFT Wordpress</option>
+															<option value="JSOFT Admin" selected>kwstas</option>
+															<option value="JSOFT Drupal" >Giannhs</option>
+															<option value="JSOFT Wordpress" >manwlhs</option>
 														</select>
 													</strong>
 												</h2>
+												<p>Find out the number of subjects each Teacher has every year.</p>
 
 												<div id="salesSelectorItems" class="chart-data-selector-items mt-sm">
 													<!-- Flot: Sales JSOFT Admin -->
@@ -282,7 +331,7 @@
 												</div>
 												<div class="widget-summary-col">
 													<div class="summary">
-														<h4 class="title">Support Questions</h4>
+														<h4 class="title"></h4>
 														<div class="info">
 															<strong class="amount">1281</strong>
 															<span class="text-primary">(14 unread)</span>
