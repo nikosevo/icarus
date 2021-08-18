@@ -230,7 +230,6 @@
 
 	/*
 	Flot: Real-Time
-	*/
 	(function() {
 		var data = [],
 			totalPoints = 300;
@@ -311,8 +310,10 @@
 
 		update();
 	})();
-
-		/*
+	*/
+	
+	
+	/*
 	Flot: Pie
 	*/
 	(function() {
@@ -335,20 +336,6 @@
 			}
 		});
 	})();
-
-	/*
-	Sparkline: Bar
-	*/
-	var sparklineBarDashOptions = {
-		type: 'bar',
-		width: '80',
-		height: '55',
-		barColor: '#0088cc',
-		negBarColor: '#B20000'
-	};
-
-	$("#sparklineBarDash").sparkline(sparklineBarDashData, sparklineBarDashOptions);
-
 	/*
 	Sparkline: Line
 	*/
