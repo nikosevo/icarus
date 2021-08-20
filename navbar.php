@@ -68,32 +68,44 @@
 										<li>
 											<a href="#" class="clearfix">
 												<div class="image">
-													<i class="fa fa-thumbs-down bg-danger"></i>
+													<i class="fa fa-users bg-info"></i>
 												</div>
-												<span class="title">Server is Down!</span>
-												<span class="message">Just now</span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-lock bg-warning"></i>
-												</div>
-												<span class="title">User Locked</span>
-												<span class="message">15 minutes ago</span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-signal bg-success"></i>
-												</div>
-												<span class="title">Connection Restaured</span>
-												<span class="message">10/10/2014</span>
+												<span class="button title">User just signed up</span>
+												<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
+												<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+												<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
 											</a>
 										</li>
 									</ul>
 			
+									<hr />
+									<ul>
+										<li>
+											<a href="#" class="clearfix">
+												<div class="image">
+													<i class="fa fa-users bg-info"></i>
+												</div>
+												<span class="button title">User just signed up</span>
+												<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
+												<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+												<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+											</a>
+										</li>
+									</ul>
+									<hr />
+									<ul>
+										<li>
+											<a href="#" class="clearfix">
+												<div class="image">
+													<i class="fa fa-users bg-info"></i>
+												</div>
+												<span class="button title">User just signed up</span>
+												<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
+												<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+												<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+											</a>
+										</li>
+									</ul>
 									<hr />
 			
 									<div class="text-right">
