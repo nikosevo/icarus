@@ -1,4 +1,56 @@
 <!doctype html>
+
+<?php   
+if(isset($_GET['error']) && $_GET['error'] == 1){ 
+	echo '<script>alert("Username Already Exists!")</script>';
+} 
+
+if(isset($_GET['error']) && $_GET['error'] == 2){ 
+	echo '<script>alert("Passwords dont match!")</script>';
+}
+extract($_POST);
+include("connect.php");
+if(isset($_POST['save']) && $_POST['save']== "insert")
+{
+	include("connect.php");
+	$sql=mysqli_query($link,"SELECT * FROM users where username='$username'");
+	if(mysqli_num_rows($sql)>0)
+	{	
+		
+		header("Location: pages-signup.php?error=1");
+		exit;
+	}
+	if($pwd != $pwd_confirm){
+		
+		header("Location: pages-signup.php?error=2");
+		exit;
+	}
+	else{
+		
+		mysqli_autocommit($link, false);
+		$password = md5($pwd);
+		$sql = "insert into users(userID,username,passwd,roleID) values('','$username','$password','0')";
+		$result = mysqli_query($link,$sql) ;
+		if($result){
+			mysqli_commit($link);
+			echo"<font color=\"#3300FF\"><strong><br>Registration successful!<br></font>";
+			header("Location: pages-signin.php?status=success");
+			exit();
+		}else{
+			mysqli_rollback($link);
+			echo"<font color=\"#FF0000\"><strong><br>Registration canceled due to errors !<br></font>";
+		}
+			
+			
+		
+	}
+}
+
+
+    
+
+?>
+
 <html class="fixed">
 	<head>
 
@@ -39,7 +91,7 @@
 		<section class="body-sign">
 			<div class="center-sign">
 				<a href="/" class="logo pull-left">
-					<img src="assets/images/logo.png" height="54" alt="Porto Admin" />
+					<img src="assets/images/logo.jpg" height="54" alt="Porto Admin" />
 				</a>
 
 				<div class="panel panel-sign">
@@ -47,30 +99,30 @@
 						<h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Sign Up</h2>
 					</div>
 					<div class="panel-body">
-						<form>
+						<form action="pages-signup.php" method="post" enctype="multipart/form-data">
 							<div class="form-group mb-lg">
-								<label>Name</label>
-								<input name="name" type="text" class="form-control input-lg" />
+								<label>Username</label>
+								<input name="username" type="text" class="form-control input-lg" required="required" />
 							</div>
 
-							<div class="form-group mb-lg">
+							<!-- <div class="form-group mb-lg">
 								<label>What is your role</label>
 								<select name="Role" id="role">
-								<option value="" selected disabled hidden>Choose here</option>
-								<option value="student">Student</option>
-								<option value="profesor">Profesor</option>
+									<option value="" selected disabled hidden>Choose here</option>
+									<option value="student">Student</option>
+									<option value="profesor">Profesor</option>
 								</select>
-							</div>
+							</div> -->
 
 							<div class="form-group mb-none">
 								<div class="row">
 									<div class="col-sm-6 mb-lg">
 										<label>Password</label>
-										<input name="pwd" type="password" class="form-control input-lg" />
+										<input name="pwd" type="password" class="form-control input-lg" required="required" />
 									</div>
 									<div class="col-sm-6 mb-lg">
 										<label>Password Confirmation</label>
-										<input name="pwd_confirm" type="password" class="form-control input-lg" />
+										<input name="pwd_confirm" type="password" class="form-control input-lg" required="required" />
 									</div>
 								</div>
 							</div>
@@ -83,8 +135,8 @@
 									</div>
 								</div>
 								<div class="col-sm-4 text-right">
-									<button type="submit" class="btn btn-primary hidden-xs">Sign Up</button>
-									<button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign Up</button>
+									<button type="submit" name="save" value="insert" class="btn btn-primary hidden-xs">Sign Up</button>
+									<button type="submit" name="save" value="insert" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign Up</button>
 								</div>
 							</div>
 
@@ -93,13 +145,13 @@
 							</span>
 
 
-							<p class="text-center">Already have an account? <a href="pages-signin.html">Sign In!</a>
+							<p class="text-center">Already have an account? <a href="pages-signin.php">Sign In!</a>
 
 						</form>
 					</div>
 				</div>
 
-				<p class="text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+				<p class="text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved.</p>
 			</div>
 		</section>
 		<!-- end: page -->

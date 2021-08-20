@@ -40,6 +40,13 @@
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
 
 	</head>
+	<?php
+		session_start();
+		include 'connect.php';
+		$ID= $_SESSION["userID"];
+		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
+		$row  = mysqli_fetch_array($sql);
+	?>
 	<body>
 		<section class="body">
 
