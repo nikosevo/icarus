@@ -22,6 +22,9 @@
 		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
+		<!-- Specific Page Vendor CSS --> 
+		<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
 
@@ -30,6 +33,7 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
 
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
@@ -118,6 +122,20 @@
                                                 <label class="col-md-3 control-label" for="profileFirstName">Field</label>
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control" id="profileFirstName">
+                                                </div>
+											</div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="profileFirstName">Teacher</label>
+                                                <div class="col-md-8">
+                                                <select data-plugin-selectTwo class="form-control populate">
+                                                        <option value="kwstas">kwstas</option>
+                                                        <option value="Giannhs">Giannhs</option>
+                                                        <option value="Giwrgos">Giwrgos</option>
+                                                        <option value="to maraki">to maraki</option>
+                                                        <option value="elenh">elenh</option>
+                                                        <option value="Aggelos">Aggelos</option>
+                                                     
+													</select>
                                                 </div>
 											</div>
 												
@@ -244,6 +262,8 @@
 		
 		<!-- Specific Page Vendor -->
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		<script src="assets/vendor/select2/select2.js"></script>
+
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
@@ -253,6 +273,7 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+
 
 	</body>
 </html>
