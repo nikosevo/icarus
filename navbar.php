@@ -3,6 +3,9 @@
 	include 'connect.php';
 	$userID= $_SESSION["userID"];
 	$roleID= $_SESSION["roleID"];
+	$firstname =""; 
+	$lastname  = ""; 
+	$role="" ;
 	if ($roleID==1){
 		$sql=mysqli_query($link,"SELECT * FROM profesors where userID='$userID' ");
 		$row  = mysqli_fetch_array($sql);
