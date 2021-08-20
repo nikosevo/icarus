@@ -1,4 +1,15 @@
 <!doctype html>
+
+<?php 
+	include 'connect.php';
+	$subID = $_GET['subID'];
+	$sql = "SELECT * FROM `subject` where subID='$subID' ";
+	$result = mysqli_query($link,$sql);
+	$row  = mysqli_fetch_array($result);
+	$title = $row['title'];
+	$description = $row['description'];
+?>
+
 <html class="fixed">
 	<head>
 
@@ -75,7 +86,7 @@
 									<div class="thumb-info mb-md">
 										<img src="assets/images/!logged-user.jpg" class="rounded img-responsive" alt="John Doe">
 										<div class="thumb-info-title">
-											<span class="thumb-info-inner">Maths for engineers 2</span>
+											<span class="thumb-info-inner"><?php echo $title ;?></span>
 											<span class="thumb-info-type">Mathematics</span>
 										</div>
 									</div>
@@ -101,7 +112,7 @@
 
 										<h4 class="mb-xlg">About</h4>
 
-										<p>this is small descrription blah blah blah</p>
+										<p><?php echo $description ;?></p>
 									</div>
 									<div id="edit" class="tab-pane">
 
