@@ -1,3 +1,17 @@
+<?php
+$result=mysqli_query($link,"SELECT COUNT(*) as total FROM `subject`");
+$data=mysqli_fetch_assoc($result);
+$subjectcount = $data['total'];
+
+$result1=mysqli_query($link,"SELECT COUNT(*) as total FROM `profesors`");
+$data1=mysqli_fetch_assoc($result1);
+$profesorcount = $data1['total'];
+
+$result2=mysqli_query($link,"SELECT COUNT(*) as total FROM `students`");
+$data2=mysqli_fetch_assoc($result2);
+$studentcount = $data2['total'];
+?>
+
 <aside id="sidebar-left" class="sidebar-left">
 				
                 <div class="sidebar-header">
@@ -28,21 +42,21 @@
                                 </li>
                                 <li>
                                     <a href="subjects-table.php">
-                                        <span class="pull-right label label-primary">90</span>
+                                        <span class="pull-right label label-primary"><?php echo $subjectcount ?></span>
                                         <i class="fa fa-book" aria-hidden="true"></i>
                                         <span>subjects</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="students-table.php">
-                                        <span class="pull-right label label-primary">340</span>
+                                        <span class="pull-right label label-primary"><?php echo $studentcount ?></span>
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <span>Students</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="professors-table.php">
-                                        <span class="pull-right label label-primary">100</span>
+                                        <span class="pull-right label label-primary"><?php echo $profesorcount ?></span>
                                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                                         <span>Professors</span>
                                     </a>
