@@ -154,25 +154,6 @@
 							</div>
 						</section>
 					</div>
-					<!-- ser ver smt chart-->
-					<div class="col-md-6">
-						<section class="panel">
-							<header class="panel-heading">
-								<div class="panel-actions">
-									<a href="#" class="fa fa-caret-down"></a>
-									<a href="#" class="fa fa-times"></a>
-								</div>
-								<h2 class="panel-title">Server Usage</h2>
-								<p class="panel-subtitle">See how many people are currently logged in at your facility's webpage.</p>
-							</header>
-							<div class="panel-body">
-
-								<!-- Flot: Curves -->
-								<div class="chart chart-md" id="flotDashRealTime"></div>
-
-							</div>
-						</section>
-					</div>
 					<!-- pie chart -->
 					<div class="col-md-6">
 						<section class="panel">
@@ -221,7 +202,7 @@
 
 					<!-- start: page -->
 					<div class="row">
-						<div class="col-md-5 col-lg-12 col-xl-6">
+						<div class="col-md-6 col-lg-12 col-xl-6">
 							<section class="panel">
 								<div class="panel-body">
 									<div class="row">
@@ -554,6 +535,8 @@
 													</div>
 												</div>
 											</div>
+
+											<!-- messages section 
 											<div class="panel panel-accordion">
 												<div class="panel-heading">
 													<h4 class="panel-title">
@@ -597,6 +580,7 @@
 													</div>
 												</div>
 											</div>
+											messages section end-->
 										</div>
 									</section>
 
@@ -614,16 +598,7 @@
 									<h2 class="panel-title">My Stats</h2>
 								</header>
 								<div class="panel-body">
-									<section class="panel">
-										<div class="panel-body">
-											<div class="small-chart pull-right" id="sparklineBarDash"></div>
-											<script type="text/javascript">
-												var sparklineBarDashData = [5, 6, 7, 2, 0, 4 , 2, 4, 2, 0, 4 , 2, 4, 2, 0, 4];
-											</script>
-											<div class="h4 text-bold mb-none">488</div>
-											<p class="text-xs text-muted mb-none">Average Profile Visits</p>
-										</div>
-									</section>
+
 									<section class="panel">
 										<div class="panel-body">
 											<div class="circular-bar circular-bar-xs m-none mt-xs mr-md pull-right">
@@ -633,7 +608,7 @@
 												</div>
 											</div>
 											<div class="h4 text-bold mb-none">12</div>
-											<p class="text-xs text-muted mb-none">Working Projects</p>
+											<p class="text-xs text-muted mb-none">Ongoing Projects</p>
 										</div>
 									</section>
 									<section class="panel">
@@ -656,8 +631,8 @@
 									</div>
 
 									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-normal va-middle mr-sm">198</span>
-										<span class="va-middle">Friends</span>
+										<span class="label label-primary label-sm text-normal va-middle mr-sm">100</span>
+										<span class="va-middle">Professors</span>
 									</h2>
 								</header>
 								<div class="panel-body">
@@ -667,27 +642,27 @@
 												<figure class="image rounded">
 													<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
 												</figure>
-												<span class="title">Joseph Doe Junior</span>
+												<span class="title">kwstas</span>
 												<span class="message truncate">Lorem ipsum dolor sit.</span>
 											</li>
 											<li>
 												<figure class="image rounded">
 													<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
 												</figure>
-												<span class="title">Joseph Junior</span>
+												<span class="title">Giannhs</span>
 												<span class="message truncate">Lorem ipsum dolor sit.</span>
 											</li>
 											<li>
 												<figure class="image rounded">
 													<img src="assets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle">
 												</figure>
-												<span class="title">Joe Junior</span>
+												<span class="title">manwlhs</span>
 												<span class="message truncate">Lorem ipsum dolor sit.</span>
 											</li>
 										</ul>
 										<hr class="dotted short">
 										<div class="text-right">
-											<a class="text-uppercase text-muted" href="#">(View All)</a>
+											<a class="text-uppercase text-muted" href="professors-table.php">(View All)</a>
 										</div>
 									</div>
 								</div>
@@ -710,7 +685,7 @@
 										<a href="#" class="fa fa-times"></a>
 									</div>
 
-									<h2 class="panel-title">Company Activity</h2>
+									<h2 class="panel-title">Your facility's last activities</h2>
 								</header>
 								<div class="panel-body">
 									<div class="timeline timeline-simple mt-xlg mb-md">
@@ -750,6 +725,8 @@
 							</section>
 						</div>
 					</div>
+					<!-- the map --
+
 					<div class="row">
 						<div class="col-lg-6 col-md-12">
 							<section class="panel panel-transparent">
@@ -766,6 +743,8 @@
 								</div>
 							</section>
 						</div>
+
+						end of map -->
 						<div class="col-lg-6 col-md-12">
 							<section class="panel">
 								<header class="panel-heading panel-heading-transparent">
@@ -782,16 +761,18 @@
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Project</th>
-													<th>Status</th>
-													<th>Progress</th>
+													<th>subject</th>
+													<th>project details</th>
+													<th>importance</th>
+													<th>deadline</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
 													<td>1</td>
-													<td>JSOFT - Responsive HTML5 Template</td>
-													<td><span class="label label-success">Success</span></td>
+													<td>math</td>
+													<td>calculus</td>
+													<td><span class="label label-success">Voluntary</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded m-none mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
@@ -802,8 +783,9 @@
 												</tr>
 												<tr>
 													<td>2</td>
-													<td>JSOFT - Responsive Drupal 7 Theme</td>
-													<td><span class="label label-success">Success</span></td>
+													<td>Programming</td>
+													<td>c/c++</td>
+													<td><span class="label label-success">Voluntary</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded m-none mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
@@ -814,8 +796,9 @@
 												</tr>
 												<tr>
 													<td>3</td>
-													<td>Tucson - Responsive HTML5 Template</td>
-													<td><span class="label label-warning">Warning</span></td>
+													<td>Programming</td>
+													<td>Java</td>
+													<td><span class="label label-warning">Helpful</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded m-none mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -826,8 +809,9 @@
 												</tr>
 												<tr>
 													<td>4</td>
-													<td>Tucson - Responsive Business WordPress Theme</td>
-													<td><span class="label label-success">Success</span></td>
+													<td>artificial intelligence</td>
+													<td>path finding</td>
+													<td><span class="label label-success">Voluntary</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded m-none mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
@@ -838,8 +822,9 @@
 												</tr>
 												<tr>
 													<td>5</td>
-													<td>JSOFT - Responsive Admin HTML5 Template</td>
-													<td><span class="label label-warning">Warning</span></td>
+													<td>math</td>
+													<td>calculus</td>
+													<td><span class="label label-warning">Helpful</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded m-none mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
@@ -850,8 +835,9 @@
 												</tr>
 												<tr>
 													<td>6</td>
-													<td>JSOFT - Responsive HTML5 Template</td>
-													<td><span class="label label-danger">Danger</span></td>
+													<td>math</td>
+													<td>calculus</td>
+													<td><span class="label label-danger">Mandatory</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded m-none mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
@@ -862,8 +848,9 @@
 												</tr>
 												<tr>
 													<td>7</td>
-													<td>JSOFT - Responsive Drupal 7 Theme</td>
-													<td><span class="label label-success">Success</span></td>
+													<td>math</td>
+													<td>calculus</td>
+													<td><span class="label label-success">Voluntary</span></td>
 													<td>
 														<div class="progress progress-sm progress-half-rounded mt-xs light">
 															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
