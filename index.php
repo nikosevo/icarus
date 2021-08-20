@@ -40,13 +40,31 @@
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
 
 	</head>
-	<?php
-		session_start();
+	
+		<!-- session_start();
 		include 'connect.php';
-		$ID= $_SESSION["userID"];
-		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
-		$row  = mysqli_fetch_array($sql);
-	?>
+		$userID= $_SESSION["userID"];
+		$roleID= $_SESSION["roleID"];
+		if ($roleID=1){
+			$sql=mysqli_query($link,"SELECT * FROM profesors where userID='$userID' ");
+			$row  = mysqli_fetch_array($sql);
+			$firstname = $row['fname']; 
+			$lastname  = $row['lname']; 	
+		}
+		elseif($roleID=2){
+			$sql=mysqli_query($link,"SELECT * FROM students where userID='$userID' ");
+			$row  = mysqli_fetch_array($sql);
+			$firstname = $row['fname']; 
+			$lastname  = $row['lname']; 
+		}
+		elseif($roleID=3){
+			$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
+			$row  = mysqli_fetch_array($sql);
+			$username = $row['username']; 
+		} -->
+		
+		
+	
 	<body>
 		<section class="body">
 
