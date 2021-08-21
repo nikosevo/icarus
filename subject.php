@@ -112,8 +112,12 @@
 									<li>
 										<a href="#tuition" data-toggle="tab">Tuition</a>
 									</li>
+									<li>
+										<a href="#details" data-toggle="tab">Details</a>
+									</li>
 								</ul>
 								<div class="tab-content">
+
 									<div id="overview" class="tab-pane active">
 										
 
@@ -121,6 +125,7 @@
 
 										<p><?php echo $description ;?></p>
 									</div>
+
 									<div id="edit" class="tab-pane">
 
 										<form class="form-horizontal" method="get">		
@@ -172,67 +177,84 @@
 										</form>
 
 									</div>
+
 									<div id="tuition" class="tab-pane">
-										<h4 class="mb-xlg">here we will add the way of grading of a lesson</h4>
-
-										<form class="form-horizontal" method="get">		
-											<h4 class="mb-xlg">Subjects Tuitions </h4>
-
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="profileFirstName">Year</label>
-                                                <div class="col-md-3">
-                                                    <input type="text" class="form-control" id="profileFirstName">
-                                                </div>
-											</div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="profileFirstName">Semester</label>
-                                                <div class="col-md-3">
-                                                    <input type="text" class="form-control" id="profileFirstName">
-                                                </div>
-											</div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="profileFirstName">Teacher</label>
-                                                <div class="col-md-5">
-                                                <select data-plugin-selectTwo class="form-control populate">
-                                                        <option value="kwstas">kwstas</option>
-                                                        <option value="Giannhs">Giannhs</option>
-                                                        <option value="Giwrgos">Giwrgos</option>
-                                                        <option value="to maraki">to maraki</option>
-                                                        <option value="elenh">elenh</option>
-                                                        <option value="Aggelos">Aggelos</option>
-                                                     
-													</select>
-                                                </div>
-											</div>
-												
-											<hr class="dotted tall">
-											<h4 class="mb-xlg">About </h4>
-											<fieldset>
-												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileFirstName">Theory Weight</label>
-													<div class="col-md-3">
-														<input type="text" class="form-control" id="profileFirstName">
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileFirstName">Lab Weight</label>
-													<div class="col-md-3">
-														<input type="text" class="form-control" id="profileFirstName">
-													</div>
-												</div>
-											</fieldset>
-
-											<div class="panel-footer">
-												<div class="row">
-													<div class="col-md-9 col-md-offset-3">
-														<button type="submit" class="btn btn-primary">Submit</button>
-														<button type="reset" class="btn btn-default">Reset</button>
-													</div>
+										<div class="pricing-table">
+											<div class="">
+												<div class="plan">
+													<h3>Semester<span>D</span></h3>
+													<a class="btn btn-lg btn-primary" href="#">2021</a>
+													<ul>
+														<li><b>Teacher</b> Kwstas</li>
+														<li><b>duration</b> 6 months</li>
+														<li><b>Lab Weight</b> 20%</li>
+														<li><b>Theory Weight</b> 80%</li>
+														<li><b>Lab Limit</b> 2 years</li>
+														<li><b>Theory limit</b> - </li>
+													</ul>
 												</div>
 											</div>
-
-										</form>
+										</div>
+					
+									
+										
 									</div>
+
+									<div id="details" class="tab-pane">
+										<h4 class="mb-xlg">here are some of the tuitions from the past years</h4>
+										<table class="table mb-none">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>tuitionID</th>
+													<th>Year</th>
+													<th>semester</th>
+													<th>Teacher</th>													
+													<th>actions</th>													
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Mark</td>
+													<td>Otto</td>
+													<td>@mdo</td>
+													<td>makis</td>
+													<td class="actions">
+														<a href=""><i class="fa fa-eye"></i></a>
+														<a href=""><i class="fa fa-pencil"></i></a>
+														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Jacob</td>
+													<td>Thornton</td>
+													<td>@fat</td>
+													<td>takis</td>
+													<td class="actions">
+														<a href=""><i class="fa fa-eye"></i></a>
+														<a href=""><i class="fa fa-pencil"></i></a>
+														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Larry</td>
+													<td>the Bird</td>
+													<td>@twitter</td>
+													<td>kwstas</td>
+													<td class="actions">
+														<a href=""><i class="fa fa-eye"></i></a>
+														<a href=""><i class="fa fa-pencil"></i></a>
+														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									
+									</div>
+
 								</div>
 							</div>
 						</div>
