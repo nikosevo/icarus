@@ -109,6 +109,9 @@
 									<li>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
+									<li>
+										<a href="#tuition" data-toggle="tab">Tuition</a>
+									</li>
 								</ul>
 								<div class="tab-content">
 									<div id="overview" class="tab-pane active">
@@ -135,22 +138,8 @@
                                                     <input type="text" class="form-control" id="profileFirstName">
                                                 </div>
 											</div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="profileFirstName">Teacher</label>
-                                                <div class="col-md-8">
-                                                <select data-plugin-selectTwo class="form-control populate">
-                                                        <option value="kwstas">kwstas</option>
-                                                        <option value="Giannhs">Giannhs</option>
-                                                        <option value="Giwrgos">Giwrgos</option>
-                                                        <option value="to maraki">to maraki</option>
-                                                        <option value="elenh">elenh</option>
-                                                        <option value="Aggelos">Aggelos</option>
-                                                     
-													</select>
-                                                </div>
-											</div>
 												
-											</fieldset>
+	
 											<hr class="dotted tall">
 											<h4 class="mb-xlg">About </h4>
 											<fieldset>
@@ -182,6 +171,67 @@
 
 										</form>
 
+									</div>
+									<div id="tuition" class="tab-pane">
+										<h4 class="mb-xlg">here we will add the way of grading of a lesson</h4>
+
+										<form class="form-horizontal" method="get">		
+											<h4 class="mb-xlg">Subjects Tuitions </h4>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="profileFirstName">Year</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control" id="profileFirstName">
+                                                </div>
+											</div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="profileFirstName">Semester</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control" id="profileFirstName">
+                                                </div>
+											</div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="profileFirstName">Teacher</label>
+                                                <div class="col-md-5">
+                                                <select data-plugin-selectTwo class="form-control populate">
+                                                        <option value="kwstas">kwstas</option>
+                                                        <option value="Giannhs">Giannhs</option>
+                                                        <option value="Giwrgos">Giwrgos</option>
+                                                        <option value="to maraki">to maraki</option>
+                                                        <option value="elenh">elenh</option>
+                                                        <option value="Aggelos">Aggelos</option>
+                                                     
+													</select>
+                                                </div>
+											</div>
+												
+											<hr class="dotted tall">
+											<h4 class="mb-xlg">About </h4>
+											<fieldset>
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileFirstName">Theory Weight</label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" id="profileFirstName">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileFirstName">Lab Weight</label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" id="profileFirstName">
+													</div>
+												</div>
+											</fieldset>
+
+											<div class="panel-footer">
+												<div class="row">
+													<div class="col-md-9 col-md-offset-3">
+														<button type="submit" class="btn btn-primary">Submit</button>
+														<button type="reset" class="btn btn-default">Reset</button>
+													</div>
+												</div>
+											</div>
+
+										</form>
 									</div>
 								</div>
 							</div>
