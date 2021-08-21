@@ -222,7 +222,6 @@
 													<td>makis</td>
 													<td class="actions">
 														<a href=""><i class="fa fa-eye"></i></a>
-														<a href=""><i class="fa fa-pencil"></i></a>
 														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
 													</td>
 												</tr>
@@ -234,7 +233,6 @@
 													<td>takis</td>
 													<td class="actions">
 														<a href=""><i class="fa fa-eye"></i></a>
-														<a href=""><i class="fa fa-pencil"></i></a>
 														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
 													</td>
 												</tr>
@@ -246,7 +244,6 @@
 													<td>kwstas</td>
 													<td class="actions">
 														<a href=""><i class="fa fa-eye"></i></a>
-														<a href=""><i class="fa fa-pencil"></i></a>
 														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
 													</td>
 												</tr>

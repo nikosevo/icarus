@@ -59,7 +59,7 @@ include "connect.php";
 
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Students</h2>
+						<h2>Tuitions</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -68,7 +68,7 @@ include "connect.php";
 										<i class="fa fa-home"></i>
 									</a>
 								</li>
-								<li><span>Students</span></li>
+								<li><span>Tuitions</span></li>
 	
 							</ol>
 					
@@ -84,7 +84,7 @@ include "connect.php";
 									<a href="#" class="fa fa-times"></a>
 								</div>
 						
-								<h2 class="panel-title">Default</h2>
+								<h2 class="panel-title">Tuitions</h2>
 							</header>
 							<div class="panel-body">
 								<div class="row">
