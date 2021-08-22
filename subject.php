@@ -33,6 +33,9 @@
 		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
+		<!-- Specific Page Vendor CSS --> 
+		<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
 
@@ -41,6 +44,7 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
 
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
@@ -105,8 +109,15 @@
 									<li>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
+									<li>
+										<a href="#tuition" data-toggle="tab">Tuition</a>
+									</li>
+									<li>
+										<a href="#details" data-toggle="tab">Details</a>
+									</li>
 								</ul>
 								<div class="tab-content">
+
 									<div id="overview" class="tab-pane active">
 										
 
@@ -114,6 +125,7 @@
 
 										<p><?php echo $description ;?></p>
 									</div>
+
 									<div id="edit" class="tab-pane">
 
 										<form class="form-horizontal" method="get">		
@@ -132,7 +144,7 @@
                                                 </div>
 											</div>
 												
-											</fieldset>
+	
 											<hr class="dotted tall">
 											<h4 class="mb-xlg">About </h4>
 											<fieldset>
@@ -165,6 +177,81 @@
 										</form>
 
 									</div>
+
+									<div id="tuition" class="tab-pane">
+										<div class="pricing-table">
+											<div class="">
+												<div class="plan">
+													<h3>Semester<span>D</span></h3>
+													<a class="btn btn-lg btn-primary" href="#">2021</a>
+													<ul>
+														<li><b>Teacher</b> Kwstas</li>
+														<li><b>duration</b> 6 months</li>
+														<li><b>Lab Weight</b> 20%</li>
+														<li><b>Theory Weight</b> 80%</li>
+														<li><b>Lab Limit</b> 2 years</li>
+														<li><b>Theory limit</b> - </li>
+													</ul>
+												</div>
+											</div>
+										</div>
+					
+									
+										
+									</div>
+
+									<div id="details" class="tab-pane">
+										<h4 class="mb-xlg">here are some of the tuitions from the past years</h4>
+										<table class="table mb-none">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>tuitionID</th>
+													<th>Year</th>
+													<th>semester</th>
+													<th>Teacher</th>													
+													<th>actions</th>													
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Mark</td>
+													<td>Otto</td>
+													<td>@mdo</td>
+													<td>makis</td>
+													<td class="actions">
+														<a href=""><i class="fa fa-eye"></i></a>
+														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Jacob</td>
+													<td>Thornton</td>
+													<td>@fat</td>
+													<td>takis</td>
+													<td class="actions">
+														<a href=""><i class="fa fa-eye"></i></a>
+														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Larry</td>
+													<td>the Bird</td>
+													<td>@twitter</td>
+													<td>kwstas</td>
+													<td class="actions">
+														<a href=""><i class="fa fa-eye"></i></a>
+														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -255,6 +342,8 @@
 		
 		<!-- Specific Page Vendor -->
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		<script src="assets/vendor/select2/select2.js"></script>
+
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
@@ -264,6 +353,7 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+
 
 	</body>
 </html>

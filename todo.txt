@@ -5,4 +5,8 @@ if we come up with an idea or smt that need to be talked we write it down here n
     kai mono o admin mporei na ftiaksei tetoio. Oi alloi apla otan mpainoun sto profil tous that vlepoun ti anakoinwseis
     exei anevasei o admin.
 
+-alaksa to registration alla dn katalavainw apo pou pairneis to username kai to password opote to afhsa opos einai kai evala to
+    to kainourgio apo katw apla na yparxei opote thes des to mia.
+
+-added tuitions on the bar so we need to fill the db with some entries for testing
 
