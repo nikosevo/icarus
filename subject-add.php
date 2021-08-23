@@ -90,18 +90,18 @@
 					<!-- start: page -->
                     <h4 class="mb-xlg">Here you can add a new subject.</h4>
 
-                    <form class="form-horizontal" method="get">		
+                    <form class="form-horizontal" method="get" novalidate="novalidate">		
                         <h4 class="mb-xlg">Subjects Tuitions </h4>
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="profileFirstName">Name</label>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" id="profileFirstName">
+                                <input type="text" class="form-control input-sm" id="profileFirstName" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Prerequisites</label>
-                            <div class="col-md-6">
+                            <div class="col-md-6"> 
                                 <select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
                                     <optgroup label="Mathematics">
                                         <option value="analysis">Analysis</option>
@@ -238,12 +238,16 @@
         
 		
 		<!-- Specific Page Vendor -->
+		<script src="assets/vendor/jquery-validation/jquery.validate.js"></script>
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
 		<script src="assets/vendor/select2/select2.js"></script>
 		<script src="assets/vendor/summernote/summernote.js"></script>
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+
+
+
         
 
 		

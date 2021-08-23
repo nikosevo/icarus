@@ -6,6 +6,9 @@
 	$firstname =""; 
 	$lastname  = ""; 
 	$role="" ;
+	if ($roleID==0){
+		$role="visitor";
+	}
 	if ($roleID==1){
 		$sql=mysqli_query($link,"SELECT * FROM profesors where userID='$userID' ");
 		$row  = mysqli_fetch_array($sql);
@@ -53,6 +56,13 @@
 					</form>
 			
 					<span class="separator"></span>
+					<?php if($role=="visitor"){ ?>
+						<a href="pages-signin.php" class="mb-xs mt-xs mr-xs btn btn-primary">sign in</a>
+
+					<?php }else{?>
+
+					
+
 
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
@@ -82,73 +92,76 @@
 							</ul>
 						</div>
 					</div>
-					<ul class="notifications">
-						<li>
-							<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
-								<i class="fa fa-bell"></i>
-								<span class="badge">3</span>
-							</a>
-			
-							<div class="dropdown-menu notification-menu">
-								<div class="notification-title">
-									<span class="pull-right label label-default">3</span>
-									Alerts
-								</div>
-			
-								<div class="content">
-									<ul>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-users bg-info"></i>
-												</div>
-												<span class="button title">User just signed up</span>
-												<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
-												<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
-												<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
-											</a>
-										</li>
-									</ul>
-			
-									<hr />
-									<ul>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-users bg-info"></i>
-												</div>
-												<span class="button title">User just signed up</span>
-												<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
-												<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
-												<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
-											</a>
-										</li>
-									</ul>
-									<hr />
-									<ul>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-users bg-info"></i>
-												</div>
-												<span class="button title">User just signed up</span>
-												<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
-												<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
-												<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
-											</a>
-										</li>
-									</ul>
-									<hr />
-			
-									<div class="text-right">
-										<a href="#" class="view-more">View All</a>
+					<?php if($role=="administrator"){ ?>
+						<ul class="notifications">
+							<li>
+								<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+									<i class="fa fa-bell"></i>
+									<span class="badge">3</span>
+								</a>
+				
+								<div class="dropdown-menu notification-menu">
+									<div class="notification-title">
+										<span class="pull-right label label-default">3</span>
+										Alerts
+									</div>
+				
+									<div class="content">
+										<ul>
+											<li>
+												<a href="#" class="clearfix">
+													<div class="image">
+														<i class="fa fa-users bg-info"></i>
+													</div>
+													<span class="button title">User just signed up</span>
+													<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
+													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+												</a>
+											</li>
+										</ul>
+				
+										<hr />
+										<ul>
+											<li>
+												<a href="#" class="clearfix">
+													<div class="image">
+														<i class="fa fa-users bg-info"></i>
+													</div>
+													<span class="button title">User just signed up</span>
+													<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
+													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+												</a>
+											</li>
+										</ul>
+										<hr />
+										<ul>
+											<li>
+												<a href="#" class="clearfix">
+													<div class="image">
+														<i class="fa fa-users bg-info"></i>
+													</div>
+													<span class="button title">User just signed up</span>
+													<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
+													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+												</a>
+											</li>
+										</ul>
+										<hr />
+				
+										<div class="text-right">
+											<a href="#" class="view-more">View All</a>
+										</div>
 									</div>
 								</div>
-							</div>
-						</li>
-					</ul>
-			
+							</li>
+						</ul>
+					
+					<?php }} ?>
 					<span class="separator"></span>
+
 			
 
 				</div>
