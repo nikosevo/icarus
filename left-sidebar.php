@@ -67,6 +67,11 @@ $studentcount = $data2['total'];
                                         <i class="fa fa-folder" aria-hidden="true"></i>
                                         <span>Tuitions</span>
                                     </a>
+                                    <a href="grades-table.php">
+                                        <span class="pull-right label label-primary"><?php echo $profesorcount ?></span>
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <span>Grades</span>
+                                    </a>
                                 </li>
                                
                                 

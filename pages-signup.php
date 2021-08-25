@@ -181,7 +181,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 											<a><i class="fa fa-angle-left"></i> Previous</a>
 										</li>
 										<li class="finish hidden pull-right">
-											<button class="btn btn-primary">Finish<button>
+											<button class="btn btn-primary">Finish</button>
 										</li>
 										<li class="next">
 											<a>Next <i class="fa fa-angle-right"></i></a>
