@@ -29,7 +29,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 		
 		mysqli_autocommit($link, false);
 		$password = md5($pwd);
-		$sql = "insert into users(userID,username,passwd,roleID) values('','$username','$password','0')";
+		$sql = "insert into users(userID,username,fname,lname,passwd,roleID,isactive) values('','$username','$fname','$lname','$password','$role','0')";
 		$result = mysqli_query($link,$sql) ;
 		if($result){
 			mysqli_commit($link);
@@ -126,7 +126,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 									</li>
 								</ul>
 							</div>
-							<form id="signupForm" class="form-horizontal" novalidate="novalidate">
+							<form action="pages-signup.php" method="post" enctype="multipart/form-data" id="signupForm" class="form-horizontal" novalidate="novalidate">
 								<div class="tab-content">
 									<div id="w1-account" class="tab-pane active">
 										<div class="form-group">
@@ -138,13 +138,13 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-password">Password</label>
 											<div class="col-sm-8">
-												<input type="password" class="form-control input-sm" name="password" id="w1-password" minlength="6" required>
+												<input type="password" class="form-control input-sm" name="pwd" id="w1-password" minlength="6" required>
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-password-confirm">Confirm password</label>
 											<div class="col-sm-8">
-												<input type="password" class="form-control input-sm" name="password_confirm" id="w1-password_confirm" minlength="6"required >
+												<input type="password" class="form-control input-sm" name="pwd_confirm" id="w1-password_confirm" minlength="6"required >
 											</div>
 										</div>
 									</div>
@@ -152,13 +152,13 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-first-name">First Name</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="first-name" id="w1-first-name" required>
+												<input type="text" class="form-control input-sm" name="fname" id="w1-first-name" required>
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-last-name">Last Name</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="last-name" id="w1-last-name" required>
+												<input type="text" class="form-control input-sm" name="lname" id="w1-last-name" required>
 											</div>
 										</div>
 									</div>
@@ -166,35 +166,40 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										<div class="form-group">
 											<label class="col-sm-4 control-label">Role</label>
 											<div class="col-md-6">
-												<select class="form-control" data-plugin-multiselect id="ms_example1">
-													<option value="cheese">Student</option>
-													<option value="tomatoes">Professor</option>
+												<select name="role" class="form-control" data-plugin-multiselect id="ms_example1">
+													<option value="" selected disabled hidden>Choose here</option>
+													<option  value="2">Student</option>
+													<option  value="1">Professor</option>
 						
 												</select>
 											</div>
 										</div>
 									</div>
-								</div>
 								<div class="panel-footer">
 									<ul class="pager">
 										<li class="previous disabled">
 											<a><i class="fa fa-angle-left"></i> Previous</a>
 										</li>
-										<li class="finish hidden pull-right">
-											<button class="btn btn-primary">Finish<button>
-										</li>
+										
+											<button type="submit" name="save" value="insert" class="btn btn-primary">Finish</button>
+										
 										<li class="next">
-											<a>Next <i class="fa fa-angle-right"></i></a>
+											<a>Next <i class="fa fa-angle-right"s></i></a>
 										</li>
 									</ul>
+								</div>	
+								<p class="text-center">Already have an account ? <a href="pages-signin.php">Sign In!</a>
 								</div>
+								
+								
 							</form>
+
 						</div>
-						
+						<p class="col-md-10 text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved.</p>
 					</section>
 				</div>
 
-				<p class="col-md-10 text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved.</p>
+				
 			</div>
 		</section>
 		<!-- end: page -->
