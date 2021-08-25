@@ -10,14 +10,14 @@
 		$role="visitor";
 	}
 	if ($roleID==1){
-		$sql=mysqli_query($link,"SELECT * FROM profesors where userID='$userID' ");
+		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
 		$row  = mysqli_fetch_array($sql);
 		$firstname = $row['fname']; 
 		$lastname  = $row['lname']; 
 		$role="profesor" ;	
 	}
 	elseif($roleID==2){
-		$sql=mysqli_query($link,"SELECT * FROM students where userID='$userID' ");
+		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
 		$row  = mysqli_fetch_array($sql);
 		$firstname = $row['fname']; 
 		$lastname  = $row['lname']; 
