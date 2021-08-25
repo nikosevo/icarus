@@ -634,17 +634,17 @@
 
       // default toolbar
       toolbar: [
-        ['style', ['style']],
+        //['style', ['style']],
         ['font', ['bold', 'italic', 'underline', 'clear']],
         ['fontname', ['fontname']],
         // ['fontsize', ['fontsize']], // Still buggy
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
-        ['height', ['height']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview']],
-        ['help', ['help']]
+        //['height', ['height']],
+        //['table', ['table']],
+        //['insert', ['link', 'picture', 'video']],
+        //['view', ['fullscreen', 'codeview']],
+        //['help', ['help']]
       ],
 
       // style tag
@@ -1039,6 +1039,7 @@
      * @param {Boolean} bStart
      * @return {BoundaryPoint}
      */
+    
     var textRange2bp = function (textRange, bStart) {
       var elCont = textRange.parentElement(), nOffset;
   

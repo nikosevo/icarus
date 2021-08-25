@@ -2,6 +2,21 @@
 
 (function( $ ) {
 
+	//validation
+	$("#signupForm").validate({
+		rules:{
+			password_confirm: {
+
+				equalTo: "#w1-password"
+			}
+		},
+		messages:{
+			password_confirm:{
+				equalTo: "This Passwords do not match."
+			}
+		}
+	})
+
 	'use strict';
 
 	/*

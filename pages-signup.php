@@ -95,73 +95,11 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 		<!-- start: page -->
 		<section class="body-sign">
 			<div class="center-sign">
-				<a href="/" class="logo pull-left">
-					<img src="assets/images/logo.jpg" height="54" alt="Porto Admin" />
-				</a>
-
-				<div class="panel panel-sign">
-					<div class="panel-title-sign mt-xl text-right">
-						<h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Sign Up</h2>
-					</div>
-					<div class="panel-body">
-						<form action="pages-signup.php" method="post" enctype="multipart/form-data">
-							<div class="form-group mb-lg">
-								<label>Username</label>
-								<input name="username" type="text" class="form-control input-lg" required="required" />
-							</div>
-
-							<!-- <div class="form-group mb-lg">
-								<label>What is your role</label>
-								<select name="Role" id="role">
-									<option value="" selected disabled hidden>Choose here</option>
-									<option value="student">Student</option>
-									<option value="profesor">Profesor</option>
-								</select>
-							</div> -->
-
-							<div class="form-group mb-none">
-								<div class="row">
-									<div class="col-sm-6 mb-lg">
-										<label>Password</label>
-										<input name="pwd" type="password" class="form-control input-lg" required="required" />
-									</div>
-									<div class="col-sm-6 mb-lg">
-										<label>Password Confirmation</label>
-										<input name="pwd_confirm" type="password" class="form-control input-lg" required="required" />
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-sm-8">
-									<div class="checkbox-custom checkbox-default">
-										<input id="AgreeTerms" name="agreeterms" type="checkbox"/>
-										<label for="AgreeTerms">I agree with <a href="#">terms of use</a></label>
-									</div>
-								</div>
-								<div class="col-sm-4 text-right">
-									<button type="submit" name="save" value="insert" class="btn btn-primary hidden-xs">Sign Up</button>
-									<button type="submit" name="save" value="insert" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign Up</button>
-								</div>
-							</div>
-
-							<span class="mt-lg mb-lg line-thru text-center text-uppercase">
-								<span>or</span>
-							</span>
-
-
-							<p class="text-center">Already have an account? <a href="pages-signin.php">Sign In!</a>
-
-						</form>
-					</div>
-				</div>
+					
 				<div class="col-lg-6">
 					<section class="panel form-wizard" id="w1">
 						<header class="panel-heading">
-							<div class="panel-actions">
-								<a href="#" class="fa fa-caret-down"></a>
-								<a href="#" class="fa fa-times"></a>
-							</div>
+		
 			
 							<h2 class="panel-title">Registration</h2>
 						</header>
@@ -188,19 +126,25 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 									</li>
 								</ul>
 							</div>
-							<form class="form-horizontal" novalidate="novalidate">
+							<form id="signupForm" class="form-horizontal" novalidate="novalidate">
 								<div class="tab-content">
 									<div id="w1-account" class="tab-pane active">
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-username">Username</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="username" id="w1-username" required>
+												<input type="text" class="form-control input-sm" name="username" id="w1-username" required >
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-password">Password</label>
 											<div class="col-sm-8">
 												<input type="password" class="form-control input-sm" name="password" id="w1-password" minlength="6" required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label" for="w1-password-confirm">Confirm password</label>
+											<div class="col-sm-8">
+												<input type="password" class="form-control input-sm" name="password_confirm" id="w1-password_confirm" minlength="6"required >
 											</div>
 										</div>
 									</div>
@@ -220,18 +164,13 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 									</div>
 									<div id="w1-confirm" class="tab-pane">
 										<div class="form-group">
-											<label class="col-sm-4 control-label" for="w1-email">Email</label>
-											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="email" id="w1-email" required>
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-sm-2"></div>
-											<div class="col-sm-10">
-												<div class="checkbox-custom">
-													<input type="checkbox" name="terms" id="w1-terms" required>
-													<label for="w1-terms">I agree to the terms of service</label>
-												</div>
+											<label class="col-sm-4 control-label">Role</label>
+											<div class="col-md-6">
+												<select class="form-control" data-plugin-multiselect id="ms_example1">
+													<option value="cheese">Student</option>
+													<option value="tomatoes">Professor</option>
+						
+												</select>
 											</div>
 										</div>
 									</div>
