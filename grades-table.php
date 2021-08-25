@@ -132,19 +132,61 @@ include "connect.php";
                         </div>	
                         </header>
                         <div class="panel-body">
-                            <table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/ajax/ajax-datatables-sample.json">
-                                <thead>
-                                    <tr>
-                                        <th width="20%">ICSD</th>
-                                        <th width="25%">Student</th>
-                                        <th width="25%">Lab Grade</th>
-                                        <th width="15%">Theory Grade</th>
-                                        <th width="15%">Final Grade </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                        <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+									<thead>
+										<tr>
+											<th>ICSD</th>
+											<th>Name</th>
+											<th>Lab Grade</th>
+											<th>Theory Grade</th>
+											<th>Final Grade</th>
+											<th>actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="gradeX">
+											<td>icsd19219</td>
+											<td>kwstas papaxristou</td>
+											<td>8</td>
+											<td>5</td>
+											<td>6.5</td>
+											<td class="actions">
+												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+											</td>
+										</tr>
+										<tr class="gradeX">
+											<td>icsd19216</td>
+											<td>kwstas papakwstas</td>
+											<td>8</td>
+											<td>5</td>
+											<td>6.5</td>
+											<td class="actions">
+												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+											</td>
+										</tr>
+										<tr class="gradeX">
+											<td>icsd19218</td>
+											<td>kwstas papagiannis</td>
+											<td>8</td>
+											<td>5</td>
+											<td>6.5</td>
+											<td class="actions">
+												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+											</td>
+										</tr>
+										
+										
+									</tbody>
+								</table>
                         </div>
                     </section>
 					<!-- end: page -->

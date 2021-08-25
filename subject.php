@@ -191,6 +191,7 @@
 														<li><b>Theory Weight</b> 80%</li>
 														<li><b>Lab Limit</b> 2 years</li>
 														<li><b>Theory limit</b> - </li>
+														<li><a href="tuition-add.php" class="btn btn-success"><i class="fa fa-edit"></i></a></li>
 													</ul>
 												</div>
 											</div>
