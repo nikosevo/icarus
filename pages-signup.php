@@ -96,7 +96,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 		<section class="body-sign">
 			<div class="center-sign">
 					
-				<div class="col-lg-6">
+				<div class="col-md-12">
 					<section class="panel form-wizard" id="w1">
 						<header class="panel-heading">
 		
@@ -175,25 +175,26 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										</div>
 									</div>
 								</div>
+								<div class="panel-footer">
+									<ul class="pager">
+										<li class="previous disabled">
+											<a><i class="fa fa-angle-left"></i> Previous</a>
+										</li>
+										<li class="finish hidden pull-right">
+											<button class="btn btn-primary">Finish<button>
+										</li>
+										<li class="next">
+											<a>Next <i class="fa fa-angle-right"></i></a>
+										</li>
+									</ul>
+								</div>
 							</form>
 						</div>
-						<div class="panel-footer">
-							<ul class="pager">
-								<li class="previous disabled">
-									<a><i class="fa fa-angle-left"></i> Previous</a>
-								</li>
-								<li class="finish hidden pull-right">
-									<a>Finish</a>
-								</li>
-								<li class="next">
-									<a>Next <i class="fa fa-angle-right"></i></a>
-								</li>
-							</ul>
-						</div>
+						
 					</section>
 				</div>
 
-				<p class="text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved.</p>
+				<p class="col-md-10 text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved.</p>
 			</div>
 		</section>
 		<!-- end: page -->
