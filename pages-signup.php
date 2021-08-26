@@ -179,7 +179,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 									<ul class="pager">
 										<li class="previous disabled">
 											<a><i class="fa fa-angle-left"></i> Previous</a>
-										</li>
+										</li class="hidden">
 										
 											<button type="submit" name="save" value="insert" class="btn btn-primary">Finish</button>
 										
