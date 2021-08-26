@@ -19,5 +19,5 @@ if we come up with an idea or smt that need to be talked we write it down here n
 
 - add pages-search-results.html to vs code ~ nikos
 
-- make it work as well as add subject and edit subject ~ giorgos 
+- make it work as well as add subject and edit subject and add tuition ~ giorgos 
 

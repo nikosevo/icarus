@@ -1,15 +1,12 @@
 <!doctype html>
-<!--
+
 <?php 
 	include 'connect.php';
-	$subID = $_GET['subID'];
-	$sql = "SELECT * FROM `subject` where subID='$subID' ";
-	$result = mysqli_query($link,$sql);
-	$row  = mysqli_fetch_array($result);
-	$title = $row['title'];
-	$description = $row['description'];
+	 
+	
+									
 ?>
--->
+
 
 <html class="fixed">
 	<head>
@@ -103,18 +100,15 @@
                             <label class="col-md-3 control-label">Prerequisites</label>
                             <div class="col-md-6"> 
                                 <select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
-                                    <optgroup label="Mathematics">
-                                        <option value="analysis">Analysis</option>
-                                        <option value="algebra">Linear Algebra</option>
-                                        <option value="discrete">Discrete Mathematics</option>
-                                        <option value="numerical">Numerical Analysis</option>
-                                        <option value="probability">Probability Theory</option>
-                                    </optgroup>
-                                    <optgroup label="Computer Science">
-                                        <option value="programming">Introduction to Programming</option>
-                                        <option value="automata">Automata Theory</option>
-                                        <option value="complexity">Complexity Theory</option>
-                                        <option value="software">Software Engineering</option>
+								<optgroup label="Subjects">
+										<?php 
+											$sql = "SELECT * FROM subject";
+											$result = mysqli_query($link,$sql);
+											while ($row = mysqli_fetch_array($result)) {
+											$title = $row['title'];
+										?>
+                                        <option value=<?php $title ?> ><?php echo $title ?></option>
+										<?php } ?>
                                     </optgroup>
                                 </select>
                             </div>
