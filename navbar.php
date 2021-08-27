@@ -20,7 +20,7 @@
 		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
 		$row  = mysqli_fetch_array($sql);
 		$firstname = $row['fname']; 
-		$lastname  = $row['lname']; 
+		$la\stname  = $row['lname']; 
 		$role="student" ;
 	}
 	elseif($roleID==3){
@@ -46,7 +46,7 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 			
-					<form action="pages-search-results.html" class="search nav-form">
+					<form action="search-results.php" class="search nav-form">
 						<div class="input-group input-search">
 							<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
 							<span class="input-group-btn">

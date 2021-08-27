@@ -21,6 +21,10 @@
 		<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+		
+		<link rel="stylesheet" href="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+		<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+		<link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -80,44 +84,7 @@
 										</div>
 									</div>
 
-									<div class="widget-toggle-expand mb-md">
-										<div class="widget-header">
-											<h6>Profile Completion</h6>
-											<div class="widget-toggle">+</div>
-										</div>
-										<div class="widget-content-collapsed">
-											<div class="progress progress-xs light">
-												<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-													60%
-												</div>
-											</div>
-										</div>
-										<div class="widget-content-expanded">
-											<ul class="simple-todo-list">
-												<li class="completed">Update Profile Picture</li>
-												<li class="completed">Change Personal Information</li>
-												<li>Update Social Media</li>
-												<li>Follow Someone</li>
-											</ul>
-										</div>
-									</div>
-
-									<hr class="dotted short">
-
-									<h6 class="text-muted">About</h6>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis vulputate quam. Interdum et malesuada</p>
-									<div class="clearfix">
-										<a class="text-uppercase text-muted pull-right" href="#">(View All)</a>
-									</div>
-
-									<hr class="dotted short">
-
-									<div class="social-icons-list">
-										<a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-										<a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-										<a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-									</div>
-
+									
 								</div>
 							</section>
 
@@ -133,75 +100,53 @@
 									<li>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
+									<li>
+										<a href="#declaration" data-toggle="tab">Declararion</a>
+									</li>
+									
 								</ul>
 								<div class="tab-content">
 									<div id="overview" class="tab-pane active">
 										<h4 class="mb-md">Update Status</h4>
-
-										<section class="simple-compose-box mb-xlg">
-											<form method="get" action="/">
-												<textarea name="message-text" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1"></textarea>
-											</form>
-											<div class="compose-box-footer">
-												<ul class="compose-toolbar">
-													<li>
-														<a href="#"><i class="fa fa-camera"></i></a>
-													</li>
-													<li>
-														<a href="#"><i class="fa fa-map-marker"></i></a>
-													</li>
-												</ul>
-												<ul class="compose-btn">
-													<li>
-														<a class="btn btn-primary btn-xs">Post</a>
-													</li>
-												</ul>
-											</div>
-										</section>
-
-										<h4 class="mb-xlg">Timeline</h4>
-
-										<div class="timeline timeline-simple mt-xlg mb-md">
-											<div class="tm-body">
-												<div class="tm-title">
-													<h3 class="h5 text-uppercase">November 2013</h3>
-												</div>
-												<ol class="tm-items">
-													<li>
-														<div class="tm-box">
-															<p class="text-muted mb-none">7 months ago.</p>
-															<p>
-																It's awesome when we find a good solution for our projects, Porto Admin is <span class="text-primary">#awesome</span>
-															</p>
-														</div>
-													</li>
-													<li>
-														<div class="tm-box">
-															<p class="text-muted mb-none">7 months ago.</p>
-															<p>
-																What is your biggest developer pain point?
-															</p>
-														</div>
-													</li>
-													<li>
-														<div class="tm-box">
-															<p class="text-muted mb-none">7 months ago.</p>
-															<p>
-																Checkout! How cool is that!
-															</p>
-															<div class="thumbnail-gallery">
-																<a class="img-thumbnail lightbox" href="assets/images/projects/project-4.jpg" data-plugin-options='{ "type":"image" }'>
-																	<img class="img-responsive" width="215" src="assets/images/projects/project-4.jpg">
-																	<span class="zoom">
-																		<i class="fa fa-search"></i>
-																	</span>
-																</a>
-															</div>
-														</div>
-													</li>
-												</ol>
+												
+										<div class="panel-body">
+											<div class="table-responsive">
+												<table class="table table-hover mb-none">
+													<thead>
+														<tr>
+															<th>#</th>
+															<th>First Name</th>
+															<th>Last Name</th>
+															<th>Username</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td>Mark</td>
+															<td>Otto</td>
+															<td>@mdo</td>
+														</tr>
+														<tr>
+															<td>2</td>
+															<td>Jacob</td>
+															<td>Thornton</td>
+															<td>@fat</td>
+														</tr>
+														<tr>
+															<td>3</td>
+															<td>Larry</td>
+															<td>the Bird</td>
+															<td>@twitter</td>
+														</tr>
+													</tbody>
+												</table>
 											</div>
 										</div>
+
+										
+
+									
 									</div>
 									<div id="edit" class="tab-pane">
 
@@ -277,6 +222,73 @@
 												</div>
 											</div>
 
+										</form>
+
+									</div>
+									<div id="declaration" class="tab-pane">
+										<form>
+
+											<h4 class="mb-lg">Declaration.</h4>
+											<h5 class="mb-lg">Here you can choose in which subjects you will be tested this semester.</h4>
+
+											<div class="form-group">
+												<div class="col-md-5">
+													<select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
+														<optgroup label="Mathematics">
+															<option value="analysis">Analysis</option>
+															<option value="algebra">Linear Algebra</option>
+															<option value="discrete">Discrete Mathematics</option>
+															<option value="numerical">Numerical Analysis</option>
+															<option value="probability">Probability Theory</option>
+														</optgroup>
+														<optgroup label="Computer Science">
+															<option value="programming">Introduction to Programming</option>
+															<option value="automata">Automata Theory</option>
+															<option value="complexity">Complexity Theory</option>
+															<option value="software">Software Engineering</option>
+														</optgroup>
+													</select>
+												</div>
+											</div>
+
+											<!-- or if it is final--> 
+	
+											<table class="table table-hover mb-none">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>First Name</th>
+														<th>Last Name</th>
+														<th>Username</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>Mark</td>
+														<td>Otto</td>
+														<td>@mdo</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>Jacob</td>
+														<td>Thornton</td>
+														<td>@fat</td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td>Larry</td>
+														<td>the Bird</td>
+														<td>@twitter</td>
+													</tr>
+												</tbody>
+											</table>
+										
+
+											<hr class="dotted short">
+
+											<button class="btn">Save</button>
+											<button class="btn btn-primary">Submit</button>
 										</form>
 
 									</div>
@@ -387,6 +399,12 @@
 		
 		<!-- Specific Page Vendor -->
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		<script src="assets/vendor/select2/select2.js"></script>
+		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+
+		<script src="assets/vendor/codemirror/addon/selection/active-line.js"></script>
+
+
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
@@ -396,6 +414,9 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+
+		<script src="assets/javascripts/forms/examples.advanced.form.js" ></script>
+
 
 	</body>
 </html>
