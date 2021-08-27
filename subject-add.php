@@ -100,16 +100,18 @@
                             <label class="col-md-3 control-label">Prerequisites</label>
                             <div class="col-md-6"> 
                                 <select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
-								<optgroup label="Subjects">
+                                    <optgroup label="Mathematics">
 										<?php 
-											$sql = "SELECT * FROM subject";
-											$result = mysqli_query($link,$sql);
-											while ($row = mysqli_fetch_array($result)) {
-											$title = $row['title'];
-										?>
-                                        <option value=<?php $title ?> ><?php echo $title ?></option>
+                                            $sql = "SELECT * FROM subject";
+                                            $result = mysqli_query($link,$sql);
+                                            while ($row = mysqli_fetch_array($result)) {
+                                            $title = $row['title'];
+											echo "<option value=\"{$title}\">{$title}</option>";
+                                        ?>
+										
 										<?php } ?>
                                     </optgroup>
+                                    
                                 </select>
                             </div>
                         </div>
