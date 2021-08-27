@@ -1,10 +1,62 @@
 <!doctype html>
 
-<?php 
-	include 'connect.php';
-	 
+<?php   
+
+extract($_POST);
+include("connect.php");
+if(isset($_POST['save']) && $_POST['save']== "insertsub")
+{
 	
-									
+	$sql=mysqli_query($link,"SELECT * FROM `subject` where title='$subjtitle'");
+	if(mysqli_num_rows($sql)>0)
+	{	
+		
+		header("Location: pages-signup.php?error=1");
+		exit;
+	}
+	else{
+		
+		mysqli_autocommit($link, false);
+		
+		$sql1 = "insert into subject(subID,title,description) values('','$subjtitle','$description')";
+		$result1 = mysqli_query($link,$sql1) ;
+		if($result1){
+			mysqli_commit($link);
+
+			if(isset($_POST["subject"])) 
+			{
+				$sql2=mysqli_query($link,"SELECT subID FROM `subject` where title='$subjtitle'");
+				$row2 = mysqli_fetch_array($sql2);
+				foreach ($_POST['subject'] as $subject){
+					$sql3=mysqli_query($link,"SELECT subID FROM `subject` where title='$subject'");
+					$row3 = mysqli_fetch_array($sql3);
+					
+					mysqli_autocommit($link, false);
+					$sub1ID= $row3['subID'];
+					$sub2ID= $row2['subID'];
+					$sql4 = "insert into prerequisites(prerequisiteID,subID) values('$sub1ID','$sub2ID')";
+					$result4 = mysqli_query($link,$sql4) ;
+					if($result4){
+						mysqli_commit($link);
+					}
+				} 
+					
+			}
+			header("Location: subjects-table.php?status=success");
+			exit();
+		}else{
+			mysqli_rollback($link);
+			echo"<font color=\"#FF0000\"><strong><br>Canceled due to errors !<br></font>";
+		}
+			
+			
+		
+	}
+}
+
+
+    
+
 ?>
 
 
@@ -77,7 +129,7 @@
 									</a>
 								</li>
 								<li><span>Pages</span></li>
-								<li><span>Maths</span></li>
+								<li><span>Add</span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -87,20 +139,20 @@
 					<!-- start: page -->
                     <h4 class="mb-xlg">Here you can add a new subject.</h4>
 
-                    <form class="form-horizontal" method="get" novalidate="novalidate">		
+                    <form action="subject-add.php" method="post" enctype="multipart/form-data" class="form-horizontal" method="post" novalidate="novalidate">		
                         <h4 class="mb-xlg">Subjects Tuitions </h4>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="profileFirstName">Name</label>
+                            <label class="col-md-3 control-label" for="profileFirstName">Title</label>
                             <div class="col-md-3">
-                                <input type="text" class="form-control input-sm" id="profileFirstName" required>
+                                <input type="text" name="subjtitle" class="form-control input-sm" id="profileFirstName" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Prerequisites</label>
                             <div class="col-md-6"> 
-                                <select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
-                                    <optgroup label="Mathematics">
+                                <select class="form-control" name="subject[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
+                                    <optgroup label="Subjects">
 										<?php 
                                             $sql = "SELECT * FROM subject";
                                             $result = mysqli_query($link,$sql);
@@ -115,41 +167,31 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="profileFirstName">categhory</label>
-                            <div class="col-md-3">
-                            <select data-plugin-selectTwo class="form-control populate">
-                                    <option value="kwstas">Maths</option>
-                                    <option value="Giannhs">Geometry</option>
-                                    <option value="Giwrgos">English</option>                                    
-                                </select>
-                            </div>
-                        </div>
+                       
                             
                         <hr class="dotted tall">
-                        <h4 class="mb-xlg">Details about the subject </h4>
-                        <div class="panel-body">
-                            <form class="form-horizontal form-bordered">
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="summernote" data-plugin-summernote data-plugin-options='{ "height": 180, "codemirror": { "theme": "ambiance" } }' >Start typing...</div>
-                                    </div>
-                                </div>
-                            </form>
+                        
+                        <div>
+                            
+							<label class="col-md-3 control-label" for="profileBio">Subject Description</label>
+							<div class="col-md-8">
+								<textarea class="form-control" name="description" rows="3" ></textarea>
+							</div>
+                            <br>
                         </div>
-                    
-
-                    </form>
-                    <hr class="dotted tall">
+					<hr class="dotted tall">
 
                     <div class="panel">
-                            <div class="row">
-                                <div class="col-md-9 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="reset" class="btn btn-default">Reset</button>
-                                </div>
-                            </div>
-                        </div>
+						<div class="row">
+							<div class="col-md-9 col-md-offset-3">
+								<button type="submit" name="save" value="insertsub" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-default">Reset</button>
+							</div>
+						</div>
+                    </div>                    
+
+                    </form>
+                    
 					<!-- end: page -->
 				</section>
 			</div>

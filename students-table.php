@@ -111,13 +111,19 @@ include "connect.php";
 									while ($row = mysqli_fetch_array($result1)) {
 									$sch_number = $row['sch_number'];
 									$year_enrolled = $row['year_enrolled'];
-									$fname = $row['fname'];
-									$lname = $row['lname'];
+									
+									$usID = $row['userID'];
+									$sql2 = "SELECT * FROM users where userID='$usID'";
+									$result2 = mysqli_query($link,$sql2);
+									$row2 = mysqli_fetch_array($result2);
+
+									$fname = $row2['fname'];
+									$lname = $row2['lname'];
 									?>
 <!-- //////////////////////////////////////////////////////////// -->									
 										<tr class="gradeX">
 											<td><?php echo $row['sch_number']; ?></td>
-											<td><?php echo $row['fname'] ," " ,$row['lname']; ?></td>
+											<td><?php echo $row2['fname'] ," " ,$row2['lname']; ?></td>
 											<td><?php echo $row['year_enrolled']; ?></td>
 											<td class="actions">
 												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
