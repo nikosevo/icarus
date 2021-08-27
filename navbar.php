@@ -20,7 +20,7 @@
 		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
 		$row  = mysqli_fetch_array($sql);
 		$firstname = $row['fname']; 
-		$lastname  = $row['lname']; 
+		$la\stname  = $row['lname']; 
 		$role="student" ;
 	}
 	elseif($roleID==3){
