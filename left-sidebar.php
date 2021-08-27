@@ -72,11 +72,7 @@ $studentcount = $data2['total'];
                                         <i class="fa fa-paste" aria-hidden="true"></i>
                                         <span>Grades</span>
                                     </a>
-                                    <a href="declaration.php">
-                                        <span class="pull-right label label-primary"><?php echo $profesorcount ?></span>
-                                        <i class="fa fa-archive" aria-hidden="true"></i>
-                                        <span>Declaration</span>
-                                    </a>
+                                   
                                 </li>
                                
                                 
