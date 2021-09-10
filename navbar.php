@@ -107,49 +107,37 @@
 									</div>
 				
 									<div class="content">
+										
+<!-- //////////////////////////////////////////////////////////// -->
+													<?php 
+													$sql1 = "SELECT * FROM users where isactive='0'";
+													$result1 = mysqli_query($link,$sql1);
+													while ($row1 = mysqli_fetch_array($result1)) {
+													$username = $row1['username'];
+
+													
+													$usID = $row1['userID'];
+													// $sql2 = "SELECT * FROM users where userID='$usID'";
+													// $result2 = mysqli_query($link,$sql2);
+													// $row2 = mysqli_fetch_array($result2);												
+													?>
+<!-- //////////////////////////////////////////////////////////// -->
 										<ul>
 											<li>
 												<a href="#" class="clearfix">
 													<div class="image">
 														<i class="fa fa-users bg-info"></i>
 													</div>
-													<span class="button title">User just signed up</span>
-													<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
-													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
+													<span class="button title"><?php echo $username ?> just signed up</span>
+													
+													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Accept</button>
 													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+													<?php } ?>
 												</a>
 											</li>
 										</ul>
 				
-										<hr />
-										<ul>
-											<li>
-												<a href="#" class="clearfix">
-													<div class="image">
-														<i class="fa fa-users bg-info"></i>
-													</div>
-													<span class="button title">User just signed up</span>
-													<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
-													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
-													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
-												</a>
-											</li>
-										</ul>
-										<hr />
-										<ul>
-											<li>
-												<a href="#" class="clearfix">
-													<div class="image">
-														<i class="fa fa-users bg-info"></i>
-													</div>
-													<span class="button title">User just signed up</span>
-													<button type="button" class="btn btn-xs btn-primary" tabindex="-1">Student</button>
-													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Teacher</button>
-													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
-												</a>
-											</li>
-										</ul>
-										<hr />
+										
 				
 										<div class="text-right">
 											<a href="#" class="view-more">View All</a>
