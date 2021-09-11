@@ -2,6 +2,8 @@
 
 (function( $ ) {
 
+	
+
 	//barsChart
 	(function() {
 		var plot = $.plot('#flotBars', [flotBarsData], {
@@ -137,7 +139,10 @@
 			$('#w1').find(this.nextSelector)[ newindex == totalTabs ? 'addClass' : 'removeClass' ]( 'hidden' );
 		}
 	});
+	
 
 
 
 }).apply( this, [ jQuery ]);
+
+

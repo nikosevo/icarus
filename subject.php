@@ -88,7 +88,7 @@
 							<section class="panel">
 								<div class="panel-body">
 									<div class="thumb-info mb-md">
-										<img src="assets/images/!logged-user.jpg" class="rounded img-responsive" alt="John Doe">
+										<img src="assets/images/subject-default.jpg" class="rounded img-responsive" alt="John Doe">
 										<div class="thumb-info-title">
 											<span class="thumb-info-inner"><?php echo $title ;?></span>
 											<span class="thumb-info-type">Mathematics</span>
@@ -179,6 +179,8 @@
 									</div>
 
 									<div id="tuition" class="tab-pane">
+										<!-- if there is a tution running then good-->
+										<?php if(false) { ?>
 										<div class="pricing-table">
 											<div class="">
 												<div class="plan">
@@ -191,11 +193,43 @@
 														<li><b>Theory Weight</b> 80%</li>
 														<li><b>Lab Limit</b> 2 years</li>
 														<li><b>Theory limit</b> - </li>
-														<li><a href="tuition-add.php" class="btn btn-success"><i class="fa fa-edit"></i></a></li>
 													</ul>
 												</div>
 											</div>
 										</div>
+										<!-- else we have to add a new one -->
+										<?php }else{ ?>
+											
+											<section class="panel">
+												<header class="panel-heading bg-white">
+													<div class="panel-heading-icon bg-primary mt-sm">
+														<i class="fa fa-warning"></i>
+													</div>
+												</header>
+												<div class="panel-body">
+													<h3 class="text-semibold mt-none text-center">No tuition</h3>
+													<!-- message displays different if you are a teacher or the admin-->
+													<?php 
+														if($_SESSION['roleID']==2){
+															echo("");
+														}else{
+															echo("for role id  = 1");
+														}
+													?>
+													<hr>
+													<div class="text-center">
+														<a href="tuition-add.php" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
+														<?php if ($_SESSION['roleID'] == 2){ ?>
+															<a href="#" class="btn btn-warning disabled"><i class="fa fa-exclamation"></i> Sent Reminders</a>
+
+														<?php } ?>
+
+													</div>
+												</div>
+											</section>
+										
+
+										<?php } ?>
 					
 									
 										
