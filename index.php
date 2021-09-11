@@ -27,6 +27,8 @@
 		<link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
 		<link rel="stylesheet" href="/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
 		<link rel="stylesheet" href="/assets/vendor/morris/morris.css" />
+		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css" />
+		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -40,30 +42,7 @@
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
 
-	</head>
-	
-		<!-- session_start();
-		include 'connect.php';
-		$userID= $_SESSION["userID"];
-		$roleID= $_SESSION["roleID"];
-		if ($roleID=1){
-			$sql=mysqli_query($link,"SELECT * FROM profesors where userID='$userID' ");
-			$row  = mysqli_fetch_array($sql);
-			$firstname = $row['fname']; 
-			$lastname  = $row['lname']; 	
-		}
-		elseif($roleID=2){
-			$sql=mysqli_query($link,"SELECT * FROM students where userID='$userID' ");
-			$row  = mysqli_fetch_array($sql);
-			$firstname = $row['fname']; 
-			$lastname  = $row['lname']; 
-		}
-		elseif($roleID=3){
-			$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
-			$row  = mysqli_fetch_array($sql);
-			$username = $row['username']; 
-		} -->
-		
+	</head>		
 		
 	
 	<body>
@@ -76,6 +55,89 @@
 				<!-- left sidebar -->
 				<?php include "left-sidebar.php" ?>
 
+				<?php 
+				
+					if($_SESSION['roleID']==2){					
+				?>
+				<!-- here goes the code for the homepage of a guest --> 
+				<section  class="col-md-9 content-body">
+					<div class="owl-carousel" data-plugin-carousel data-plugin-options='{ "autoPlay": 3000, "items": 3, "itemsDesktop": [1199,4], "itemsDesktopSmall": [979,3], "itemsTablet": [768,2], "itemsMobile": [479,1] }'>
+						<div class="item spaced"><img class="img-thumbnail" src="assets/images/!logged-user.jpg" alt=""></div>
+						<div class="item spaced"><img class="img-thumbnail" src="assets/images/projects/project-2.jpg" alt=""></div>
+						<?php 
+							$sql1 = "SELECT * FROM profesors";
+							$result1 = mysqli_query($link,$sql1);
+							while ($row = mysqli_fetch_array($result1)) {
+							$profID = $row['profID'];
+							$rank = $row['rank'];
+
+							$usID = $row['userID'];
+							$sql2 = "SELECT * FROM users where userID='$usID'";
+							$result2 = mysqli_query($link,$sql2);
+							$row2 = mysqli_fetch_array($result2);
+
+							$fname = $row2['fname'];
+							$lname = $row2['lname'];
+						?>
+
+
+					</div>
+					<section>
+					
+
+					<!-- start: acordions -->
+					
+						<div class="col-md-12">
+							<div class="panel-group" id="accordion">
+								<div class="panel panel-accordion">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
+												Donec tellus massa
+											</a>
+										</h4>
+									</div>
+									<div id="collapse1One" class="accordion-body collapse in">
+										<div class="panel-body">
+											Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa.
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-accordion">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1Two">
+												 Praesent id enim
+											</a>
+										</h4>
+									</div>
+									<div id="collapse1Two" class="accordion-body collapse">
+										<div class="panel-body">
+											Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-accordion">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1Three">
+												Lorem ipsum dolor
+											</a>
+										</h4>
+									</div>
+									<div id="collapse1Three" class="accordion-body collapse">
+										<div class="panel-body">
+											Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</section>
+
+				<?php }
+					else{
+				?>
 
 				<section role="main" class="content-body">
 					<header class="page-header">
@@ -250,6 +312,8 @@
 				</section>
 			</div>
 
+			<?php } ?>
+
 			<aside id="sidebar-right" class="sidebar-right">
 				<div class="nano">
 					<div class="nano-content">
@@ -344,6 +408,8 @@
 		<script src="assets/vendor/liquid-meter/liquid.meter.js"></script>
 		<script src="assets/vendor/select2/select2.js"></script>
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+		<script src="assets/vendor/owl-carousel/owl.carousel.js"></script>
+
 
 		
 		<!-- Theme Base, Components and Settings -->
