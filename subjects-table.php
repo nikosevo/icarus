@@ -92,7 +92,7 @@ include "connect.php";
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="mb-md">
-											<button id="addToTable" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
+											<a href="subject-add.php" class="btn btn-primary">Add <i class="fa fa-plus"></i></a>
 										</div>
 									</div>
 								</div>
