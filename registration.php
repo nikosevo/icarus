@@ -70,6 +70,49 @@
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
+							<!-- The form-->
+						<div class="col-md-6">
+							<form id="chk-radios-form" action="forms-validation.html">
+								<section class="panel">
+									<header class="panel-heading">
+
+										<h2 class="panel-title">Registration</h2>
+
+										<p class="panel-subtitle">
+											Register to the lesson you would like to attend to this semester. Please note that if a lesson is not in the list below then you may not fullfill the necessary prerequisites.
+											If you think a mistake has been made please contact the office asap.
+										</p>
+									</header>
+									<div class="panel-body">
+										<div class="form-group">
+											<div class="col-sm-9">
+												<div class="checkbox-custom chekbox-primary">
+													<input id="for-project" value="project" type="checkbox" name="for[]" required />
+													<label for="for-project">My Project</label>
+												</div>
+												<div class="checkbox-custom chekbox-primary">
+													<input id="for-website" value="website" type="checkbox" name="for[]" />
+													<label for="for-website">My Website</label>
+												</div>
+												<div class="checkbox-custom chekbox-primary">
+													<input id="for-all" value="all" type="checkbox" name="for[]" />
+													<label for="for-all">All things I do</label>
+												</div>
+												<label class="error" for="for[]"></label>
+											</div>
+										</div>
+									</div>
+									<footer class="panel-footer">
+										<div class="row">
+											<div class="col-sm-9 col-sm-offset-3">
+												<button class="btn btn-primary">Submit</button>
+												<button type="reset" class="btn btn-default">Reset</button>
+											</div>
+										</div>
+									</footer>
+								</section>
+							</form>
+						</div>
 
 					
 				</section>
