@@ -105,28 +105,32 @@ include "connect.php";
                             </div>
                             <div class="form-group">
                             <div class="col-md-6">
-                                <select data-plugin-selectTwo class="select2-container form-control populate ">
+                                <select data-plugin-selectTwo class="select2-container form-control populate " onchange="location = this.value;">
                                         <option value="AK">-No subject Selected-</option>
-                                        <option value="CT">Connecticut</option>
-                                        <option value="DE">Delaware</option>
-                                        <option value="FL">Florida</option>
-                                        <option value="GA">Georgia</option>
-                                        <option value="IN">Indiana</option>
-                                        <option value="ME">Maine</option>
-                                        <option value="MD">Maryland</option>
-                                        <option value="MA">Massachusetts</option>
-                                        <option value="MI">Michigan</option>
-                                        <option value="NH">New Hampshire</option>
-                                        <option value="NJ">New Jersey</option>
-                                        <option value="NY">New York</option>
-                                        <option value="NC">North Carolina</option>
-                                        <option value="OH">Ohio</option>
-                                        <option value="PA">Pennsylvania</option>
-                                        <option value="RI">Rhode Island</option>
-                                        <option value="SC">South Carolina</option>
-                                        <option value="VT">Vermont</option>
-                                        <option value="VA">Virginia</option>
-                                        <option value="WV">West Virginia</option>
+<!-- //////////////////////////////////////////////////////////// -->
+									<?php 
+									$usID = $_SESSION["userID"];
+
+									$sql3 = "SELECT * FROM profesors where userID='$usID'";
+									$result3 = mysqli_query($link,$sql3);
+									$row3 = mysqli_fetch_array($result3);
+
+									$profID = $row3["profID"];
+									$sql2 = "SELECT * FROM tuition where profID='$profID' and `year`='2021'";
+									$result2 = mysqli_query($link,$sql2);
+									while ($row2 = mysqli_fetch_array($result2)) {
+
+									$subID = $row2["subID"];
+									$sql1 = "SELECT * FROM subject where subID='$subID'";
+									$result1 = mysqli_query($link,$sql1);
+									$row = mysqli_fetch_array($result1);
+									$subID = $row['subID'];
+									$title = $row['title'];
+									$description = $row['description'];
+									?>
+<!-- //////////////////////////////////////////////////////////// -->		
+                                        <option value="grades-table.php?choice=<?php echo $title ?>"><?php echo $title ?></option>
+									<?php } ?>     
                                 </select>
                             </div>
                         </div>	

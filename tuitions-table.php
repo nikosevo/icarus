@@ -97,22 +97,31 @@ include "connect.php";
 								<table class="table table-bordered table-striped mb-none" id="datatable-editable">
 									<thead>
 										<tr>
-											<th>School Num</th>
-											<th>Full Name</th>
-											<th>Year Enrolled</th>
-											<th>Actions</th>
+											<th>Tuition Num</th>
+											<th>Year-Semester</th>
+											<th>Subject</th>
+											<th>Profesor</th>
 										</tr>
 									</thead>
 									<tbody>
 <!-- //////////////////////////////////////////////////////////// -->
 									<?php 
-									$sql1 = "SELECT * FROM students";
+									$sql1 = "SELECT * FROM tuition";
 									$result1 = mysqli_query($link,$sql1);
 									while ($row = mysqli_fetch_array($result1)) {
-									$sch_number = $row['sch_number'];
-									$year_enrolled = $row['year_enrolled'];
+								
+									$subj = $row['subID'];
+									$prof = $row['profID'];
 									
-									$usID = $row['userID'];
+									$sql3 = "SELECT * FROM profesors where profID='$prof'";
+									$result3 = mysqli_query($link,$sql3);
+									$row3 = mysqli_fetch_array($result3);
+
+									$sql4 = "SELECT * FROM subject where subID='$subj'";
+									$result4 = mysqli_query($link,$sql4);
+									$row4 = mysqli_fetch_array($result4);
+									
+									$usID= $row3['userID'];
 									$sql2 = "SELECT * FROM users where userID='$usID'";
 									$result2 = mysqli_query($link,$sql2);
 									$row2 = mysqli_fetch_array($result2);
@@ -122,9 +131,10 @@ include "connect.php";
 									?>
 <!-- //////////////////////////////////////////////////////////// -->									
 										<tr class="gradeX">
-											<td><?php echo $row['sch_number']; ?></td>
-											<td><?php echo $fname ," " ,$lname; ?></td>
-											<td><?php echo $row['year_enrolled']; ?></td>
+											<td><?php echo $row['tuiID']; ?></td>
+											<td><?php echo $row['year'] ," - " , $row['semester']; ?></td>
+											<td><?php echo $row4['title']; ?></td>
+											<td><?php echo $row2['fname'] ," " ,$row2['lname']; ?></td>
 											<td class="actions">
 												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
 												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
