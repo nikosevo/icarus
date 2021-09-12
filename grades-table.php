@@ -178,6 +178,7 @@ include "connect.php";
 								</thead>
 								<tbody>
 									<?php 
+									    $tui = NULL;
 										if(isset($_GET['choice'])) {
 											$tui = $_GET['choice'];	
 										}									
