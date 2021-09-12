@@ -1,14 +1,16 @@
 <!doctype html>
+
+
 <html class="fixed">
 	<head>
 
 		<!-- Basic -->
 		<meta charset="UTF-8">
 
-		<title>Dashboard | JSOFT Themes | JSOFT-Admin</title>
+		<title>Subject</title>
 		<meta name="keywords" content="HTML5 Admin Template" />
-		<meta name="description" content="JSOFT Admin - Responsive HTML5 Template">
-		<meta name="author" content="JSOFT.net">
+		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
 
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -22,13 +24,8 @@
 		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
-		<!-- Specific Page Vendor CSS -->
+		<!-- Specific Page Vendor CSS --> 
 		<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
-		<link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
-		<link rel="stylesheet" href="/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-		<link rel="stylesheet" href="/assets/vendor/morris/morris.css" />
-		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css" />
-		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -39,54 +36,44 @@
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
 
+
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
 
-	</head>		
-		
-	
+	</head>
 	<body>
 		<section class="body">
 
 			<!-- start: header -->
 			<?php include "navbar.php" ?>
-
+			
 			<div class="inner-wrapper">
 				<!-- left sidebar -->
 				<?php include "left-sidebar.php" ?>
 
+
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Dashboard</h2>
+						<h2>Subject</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
 								<li>
-									<a href="index.php">
+									<a href="index.html">
 										<i class="fa fa-home"></i>
 									</a>
 								</li>
-								<li><span>Dashboard</span></li>
+								<li><span>Pages</span></li>
+								<li><span>Maths</span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
-					<!-- Start of main body --> 
-					<?php 
-						if($_SESSION['roleID']==1){
-							include "dashboard-visitor.php";
-						}else if($_SESSION['roleID']==3){
-							include "dashboard-student.php";
-						}else if($_SESSION['roleID']==2){
-							include "dashboard-prof.php";
-						}
-					?>
 					
 				</section>
 			</div>
-
             <!-- right side bar the one with the diary -->
 			<?php include "right-sidebar.php" ?>
 		</section>
@@ -101,22 +88,8 @@
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		
 		<!-- Specific Page Vendor -->
-		<script src="assets/vendor/jquery-appear/jquery.appear.js"></script>
-		<script src="assets/vendor/jquery-easypiechart/jquery.easypiechart.js"></script>
-		<script src="assets/vendor/flot/jquery.flot.js"></script>
-		<script src="assets/vendor/flot-tooltip/jquery.flot.tooltip.js"></script>
-		<script src="assets/vendor/flot/jquery.flot.pie.js"></script>
-		<script src="assets/vendor/flot/jquery.flot.categories.js"></script>
-		<script src="assets/vendor/flot/jquery.flot.resize.js"></script>
-		<script src="assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
-		<script src="assets/vendor/raphael/raphael.js"></script>
-		<script src="assets/vendor/morris/morris.js"></script>
-		<script src="assets/vendor/gauge/gauge.js"></script>
-		<script src="assets/vendor/snap-svg/snap.svg.js"></script>
-		<script src="assets/vendor/liquid-meter/liquid.meter.js"></script>
+		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
 		<script src="assets/vendor/select2/select2.js"></script>
-		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
-		<script src="assets/vendor/owl-carousel/owl.carousel.js"></script>
 
 		
 		<!-- Theme Base, Components and Settings -->
@@ -128,8 +101,6 @@
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
 
-
-	
 
 	</body>
 </html>
