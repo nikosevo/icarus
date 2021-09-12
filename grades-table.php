@@ -121,7 +121,8 @@ include "connect.php";
 									$sql2 = "SELECT * FROM tuition where profID='$profID' and `year`='2021'";
 									$result2 = mysqli_query($link,$sql2);
 									while ($row2 = mysqli_fetch_array($result2)) {
-
+									
+									$tuiID= $row2["tuiID"];
 									$subID = $row2["subID"];
 									$sql1 = "SELECT * FROM subject where subID='$subID'";
 									$result1 = mysqli_query($link,$sql1);
@@ -131,7 +132,7 @@ include "connect.php";
 									$description = $row['description'];
 									?>
 <!-- //////////////////////////////////////////////////////////// -->		
-                                        <option value="grades-table.php?choice=<?php echo $title ?>"><?php echo $title ?></option>
+                                        <option value="grades-table.php?choice=<?php echo $tuiID ?>"><?php echo $title ?></option>
 									<?php } ?>     
                                 </select>
                             </div>
@@ -176,45 +177,49 @@ include "connect.php";
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="gradeX">
-										<td>icsd19219</td>
-										<td>kwstas papaxristou</td>
-										<td>8</td>
-										<td>5</td>
-										<td>6.5</td>
-										<td class="actions">
-											<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-											<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-											<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-											<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-										</td>
-									</tr>
-									<tr class="gradeX">
-										<td>icsd19216</td>
-										<td>kwstas papakwstas</td>
-										<td>8</td>
-										<td>5</td>
-										<td>6.5</td>
-										<td class="actions">
-											<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-											<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-											<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-											<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-										</td>
-									</tr>
-									<tr class="gradeX">
-										<td>icsd19218</td>
-										<td>kwstas papagiannis</td>
-										<td>8</td>
-										<td>5</td>
-										<td>6.5</td>
-										<td class="actions">
-											<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-											<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-											<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-											<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-										</td>
-									</tr>
+									<?php 
+										if(isset($_GET['choice'])) {
+											$tui = $_GET['choice'];	
+										}									
+										$sql5 = "SELECT * FROM isregistered where tuiID='$tui' ";
+										$result5 = mysqli_query($link,$sql5);
+										while ($row5 = mysqli_fetch_array($result5)) {
+											$Tgrade = $row5["Tgrade"];
+											$Lgrade = $row5["Lgrade"];
+											$Fgrade = $row5["Fgrade"];
+											$stdID = $row5["stdID"];
+
+											$sql6 = "SELECT * FROM students where stdID='$stdID'";
+											$result6 = mysqli_query($link,$sql6);
+											$row6 = mysqli_fetch_array($result6);
+											$userID= $row6["userID"];
+											$sch=$row6["sch_number"];
+
+											$sql7 = "SELECT * FROM users where userID='$userID'";
+											$result7 = mysqli_query($link,$sql7);
+											$row7 = mysqli_fetch_array($result7);
+											$fname= $row7["fname"];
+											$lname= $row7["lname"];
+											?>	
+											<tr class="gradeX">
+												<td><?php echo $sch ;?></td>
+												<td><?php echo $fname ," " , $lname ; ?></td>
+												<td><?php echo $Lgrade; ?></td>
+												<td><?php echo $Tgrade; ?></td>
+												<td><?php echo $Fgrade; ?></td>
+												<td class="actions">
+													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												</td>
+											</tr>	
+										<?php } ?>
+										
+										
+									
+									
+									
 									
 									
 								</tbody>
