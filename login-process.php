@@ -11,10 +11,9 @@ if(isset($_POST['save'])&& $_POST['save']== "signin")
         echo "Waiting for adming to aprove";
         //break here
         header("Location: index.php"); 
-        exit();
 
     }
-    if(is_array($row))
+    else if(is_array($row))
     {
         $_SESSION["userID"] = $row['userID'];
         $_SESSION["username"]=$row['username'];
