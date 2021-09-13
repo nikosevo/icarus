@@ -74,6 +74,15 @@
 					</header>
 
 					<!-- Start of main body --> 
+					<?php
+						if(isset($_GET['error'])) {
+							$err = $_GET['error'];
+							if($err==1){
+								echo "Waiting for adming to aprove";
+							}	
+						}
+					?>
+
 					<?php 
 						if($_SESSION['roleID']==0){
 							include "dashboard-visitor.php";
