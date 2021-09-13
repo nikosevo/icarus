@@ -75,7 +75,7 @@
 
 					<!-- Start of main body --> 
 					<?php 
-						if($_SESSION['roleID']==1){
+						if($_SESSION['roleID']==0){
 							include "dashboard-visitor.php";
 						}else if($_SESSION['roleID']==3){
 							include "dashboard-student.php";
