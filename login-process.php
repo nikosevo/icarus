@@ -8,9 +8,8 @@ if(isset($_POST['save'])&& $_POST['save']== "signin")
     $sql=mysqli_query($link,"SELECT * FROM users where username='$username' and passwd='$password'");
     $row  = mysqli_fetch_array($sql);
     if($row['isactive'] == 0 ){
-        echo "Waiting for adming to aprove";
         //break here
-        header("Location: index.php"); 
+        header("Location: index.php?error=1"); 
 
     }
     else if(is_array($row))
