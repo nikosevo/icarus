@@ -29,6 +29,8 @@
 		<link rel="stylesheet" href="/assets/vendor/morris/morris.css" />
 		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css" />
 		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css" />
+		<link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -58,6 +60,7 @@
 				<section role="main" class="content-body">
 					<header class="page-header">
 						<h2>Dashboard</h2>
+						<button id="default-primary" class="mt-sm mb-sm btn btn-warning">Warning</button>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -119,6 +122,8 @@
 		<script src="assets/vendor/select2/select2.js"></script>
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 		<script src="assets/vendor/owl-carousel/owl.carousel.js"></script>
+		<script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+
 
 		
 		<!-- Theme Base, Components and Settings -->
@@ -129,6 +134,8 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+
+
 
 
 	

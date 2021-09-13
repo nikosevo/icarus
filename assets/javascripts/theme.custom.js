@@ -1,6 +1,21 @@
 /* Add here all your JS customizations */
 
 (function( $ ) {
+	'use strict';
+
+
+	//notification 
+
+	$('#default-primary').click(function() {
+		new PNotify({
+			title: 'Regular Notice',
+			text: 'Check me out! I\'m a notice.',
+			type: 'custom',
+			addclass: 'notification-notice',
+			icon: 'fa fa-danger'
+		});
+	});
+
 	/*
 	Flot: Pie Chart
 	*/
