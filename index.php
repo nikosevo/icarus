@@ -77,10 +77,12 @@
 					<?php 
 						if($_SESSION['roleID']==0){
 							include "dashboard-visitor.php";
-						}else if($_SESSION['roleID']==3){
-							include "dashboard-student.php";
 						}else if($_SESSION['roleID']==2){
+							include "dashboard-student.php";
+						}else if($_SESSION['roleID']==1){
 							include "dashboard-prof.php";
+						}else if($_SESSION['roleID']==3){
+							include "dashboard-admin.php";
 						}
 					?>
 					
