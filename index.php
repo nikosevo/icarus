@@ -30,6 +30,7 @@
 		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css" />
 		<link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css" />
 
+
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
 
@@ -41,29 +42,6 @@
 
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
-
-		<style>
-		.alert {
-		padding: 20px;
-		background-color: #f44336;
-		color: white;
-		}
-
-		.closebtn {
-		margin-left: 15px;
-		color: white;
-		font-weight: bold;
-		float: right;
-		font-size: 22px;
-		line-height: 20px;
-		cursor: pointer;
-		transition: 0.3s;
-		}
-
-		.closebtn:hover {
-		color: black;
-		}
-		</style>
 	</head>		
 		
 	
@@ -155,6 +133,7 @@
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 		<script src="assets/vendor/owl-carousel/owl.carousel.js"></script>
 
+
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
@@ -164,6 +143,8 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+
+
 
 
 	

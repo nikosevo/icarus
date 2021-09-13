@@ -1,6 +1,7 @@
 /* Add here all your JS customizations */
 
 (function( $ ) {
+	'use strict';
 	/*
 	Flot: Pie Chart
 	*/
