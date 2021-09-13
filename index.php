@@ -102,7 +102,7 @@
 							if($err==1){ ?>
 								<div class="alert">
 								<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-								<strong>Danger!</strong> "Waiting for adming to aprove.
+								<strong>Danger!</strong> Waiting for adming to aprove.
 								</div>
 								<?php
 							}	
