@@ -2,8 +2,8 @@
 
 <?php   
 
-extract($_POST);
 include("connect.php");
+extract($_POST);
 if(isset($_POST['save']) && $_POST['save']== "insertsub")
 {
 	
@@ -11,14 +11,14 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 	if(mysqli_num_rows($sql)>0)
 	{	
 		
-		header("Location: pages-signup.php?error=1");
+		header("Location: subject-add.php?error=1");
 		exit;
 	}
 	else{
 		
 		mysqli_autocommit($link, false);
 		
-		$sql1 = "insert into subject(subID,title,description) values('','$subjtitle','$description')";
+		$sql1 = "insert into subject(title,description) values('$subjtitle','$description')";
 		$result1 = mysqli_query($link,$sql1) ;
 		if($result1){
 			mysqli_commit($link);
@@ -47,6 +47,7 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 		}else{
 			mysqli_rollback($link);
 			echo"<font color=\"#FF0000\"><strong><br>Canceled due to errors !<br></font>";
+			header("Location: subjects-table.php?status=fail");
 		}
 			
 			
