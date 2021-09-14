@@ -137,11 +137,9 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 					</header>
 
 					<!-- start: page -->
-                    <h4 class="mb-xlg">Here you can add a new subject.</h4>
-
                     <form action="subject-add.php" method="post" enctype="multipart/form-data" class="form-horizontal" method="post" novalidate="novalidate">		
-                        <h4 class="mb-xlg">Subjects Tuitions </h4>
-
+                        <h2 class="mb-xlg center">Create new Subject</h2>
+						<hr>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="profileFirstName">Title</label>
                             <div class="col-md-3">
@@ -218,6 +216,10 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+		<script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+
+		
+
 
 
 

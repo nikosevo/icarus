@@ -34,13 +34,6 @@ $studentcount = $data2['total'];
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="mailbox-folder.php">
-                                        <span class="pull-right label label-primary">182</span>
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        <span>Mailbox</span>
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="subjects-table.php">
                                         <span class="pull-right label label-primary"><?php echo $subjectcount ?></span>
                                         <i class="fa fa-book" aria-hidden="true"></i>
@@ -84,14 +77,6 @@ $studentcount = $data2['total'];
                                     </a>
                                    
                                 </li>
-                               
-                                
-
-
-
-
-
-
                             </ul>
                         </nav>
             

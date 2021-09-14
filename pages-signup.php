@@ -29,7 +29,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 		
 		mysqli_autocommit($link, false);
 		$password = md5($pwd);
-		$sql = "insert into users(userID,username,fname,lname,passwd,roleID,isactive) values('','$username','$fname','$lname','$password','$role','0')";
+		$sql = "insert into users(username,fname,lname,passwd,roleID,isactive) values('$username','$fname','$lname','$password','$role',0)";
 		$result = mysqli_query($link,$sql) ;
 		if($result){
 			mysqli_commit($link);
@@ -126,13 +126,13 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 									</li>
 								</ul>
 							</div>
-							<form action="pages-signup.php" method="post" enctype="multipart/form-data" id="signupForm" class="form-horizontal" novalidate="novalidate">
+							<form id="signupForm" action="pages-signup.php" method="post" enctype="multipart/form-data"  class="form-horizontal" >
 								<div class="tab-content">
 									<div id="w1-account" class="tab-pane active">
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-username">Username</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="username" id="w1-username" required >
+												<input type="text" class="form-control input-sm" name="username" id="w1-username" autocomplete="off" required >
 											</div>
 										</div>
 										<div class="form-group">
@@ -144,7 +144,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-password-confirm">Confirm password</label>
 											<div class="col-sm-8">
-												<input type="password" class="form-control input-sm" name="pwd_confirm" id="w1-password_confirm" minlength="6"required >
+												<input type="password" class="form-control input-sm" name="pwd_confirm" id="w1-password_confirm" minlength="6" required >
 											</div>
 										</div>
 									</div>
@@ -152,13 +152,13 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-first-name">First Name</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="fname" id="w1-first-name" required>
+												<input type="text" class="form-control input-sm" name="fname" id="w1-first-name" autocomplete="off" required>
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="w1-last-name">Last Name</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control input-sm" name="lname" id="w1-last-name" required>
+												<input type="text" class="form-control input-sm" name="lname" id="w1-last-name" autocomplete="off" required>
 											</div>
 										</div>
 									</div>
@@ -166,7 +166,7 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 										<div class="form-group">
 											<label class="col-sm-4 control-label">Role</label>
 											<div class="col-md-6">
-												<select name="role" class="form-control" data-plugin-multiselect id="ms_example1">
+												<select name="role" class="form-control" data-plugin-multiselect >
 													<option value="" selected disabled hidden>Choose here</option>
 													<option  value="2">Student</option>
 													<option  value="1">Professor</option>
@@ -179,15 +179,16 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 									<ul class="pager">
 										<li class="previous disabled">
 											<a><i class="fa fa-angle-left"></i> Previous</a>
-										</li class="hidden">
-										
-											<button type="submit" name="save" value="insert" class="btn btn-primary">Finish</button>
-										
+										</li >
+										<li class="finish hidden pull-right">
+											<button type="submit" name="save" value="insert" class="btn btn-primary" style="z-index:10px;">Finish</button>
+										</li>
 										<li class="next">
 											<a>Next <i class="fa fa-angle-right"s></i></a>
 										</li>
 									</ul>
 								</div>	
+								<hr>
 								<p class="text-center">Already have an account ? <a href="pages-signin.php">Sign In!</a>
 								</div>
 								
@@ -216,7 +217,6 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 		<!-- specific page vendor-->
 		<script src="assets/vendor/jquery-validation/jquery.validate.js"></script>
 		<script src="assets/vendor/bootstrap-wizard/jquery.bootstrap.wizard.js"></script>
-		<script src="assets/vendor/pnotify/pnotify.custom.js"></script>
 
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
@@ -226,5 +226,6 @@ if(isset($_POST['save']) && $_POST['save']== "insert")
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+		
 	</body>
 </html>
