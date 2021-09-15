@@ -178,17 +178,16 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 							</div>
                             <br>
                         </div>
-					<hr class="dotted tall">
+						<hr class="dotted tall">
 
-                    <div class="panel">
-						<div class="row">
-							<div class="col-md-9 col-md-offset-3">
-								<button type="submit" name="save" value="insertsub" class="btn btn-primary">Submit</button>
-								<button type="reset" class="btn btn-default">Reset</button>
+						<div class="panel">
+							<div class="row">
+								<div class="col-md-9 col-md-offset-3">
+									<button type="submit" name="save" value="insertsub" class="btn btn-primary">Submit</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</div>
 							</div>
-						</div>
-                    </div>                    
-
+						</div>                    
                     </form>
                     
 					<!-- end: page -->
