@@ -175,9 +175,15 @@
 									<li>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
+									<?php 
+									if($roleD==2){
+									?>
 									<li>
 										<a href="#declaration" data-toggle="tab">Registration</a>
 									</li>
+									<?php 
+									}
+									?>
 									
 								</ul>
 
@@ -303,6 +309,10 @@
 										</form>
 
 									</div>
+									<?php 
+									if($roleD==2){
+									?>
+									
 									<div id="declaration" class="tab-pane">
 										<form>
 
@@ -370,6 +380,9 @@
 										</form>
 
 									</div>
+									<?php 
+									}
+									?>
 								</div>
 								
 							</div>
