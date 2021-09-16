@@ -10,5 +10,12 @@ if we come up with an idea or smt that need to be talked we write it down here n
 
 
 
+///////gio 
+profile.php den exo valei elenxo gia to an kanei edit o admin
+den exo kanei na leitourgei to registration
+
+///////nikos
+subject.php edit tuition
+
 
 
