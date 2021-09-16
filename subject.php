@@ -200,21 +200,88 @@
 
 									<div id="tuition" class="tab-pane">
 										<!-- if there is a tution running then good-->
-										<?php if(false) { ?>
+										<?php 
+											$tuitionsql = "SELECT * FROM tuition WHERE year=year(curdate()) and subID=$subID";
+											$tuition = mysqli_query($link,$tuitionsql);
+											$thisTuition = mysqli_fetch_array($tuition);							
+											if(mysqli_num_rows($tuition)>0) { 
+												$profID = $thisTuition['profID'];
+												$profsql = "SELECT * FROM users WHERE userID = $profID";
+												$prof = mysqli_query($link,$profsql);
+												$user = mysqli_fetch_array($prof);
+												
+										?>
 										<div class="pricing-table">
 											<div class="">
 												<div class="plan">
-													<h3>Semester<span>D</span></h3>
-													<a class="btn btn-lg btn-primary" href="#">2021</a>
+													<h3>Semester<span><?php echo "$thisTuition[semester]" ?></span></h3>
+													<a class="btn btn-lg btn-primary" href="#"><?php echo "$thisTuition[year]" ?></a>
 													<ul>
-														<li><b>Teacher</b> Kwstas</li>
-														<li><b>duration</b> 6 months</li>
-														<li><b>Lab Weight</b> 20%</li>
-														<li><b>Theory Weight</b> 80%</li>
-														<li><b>Lab Limit</b> 2 years</li>
-														<li><b>Theory limit</b> - </li>
+														<li><b>Teacher</b> <?php echo "$user[fname]" ?></li>
+														<li><b>duration</b> <?php echo "$user[lname]" ?></li>
+														<li><b>Lab Weight</b> <?php echo "$thisTuition[Lweight]" ?></li>
+														<li><b>Theory Weight</b> <?php echo "$thisTuition[Tweight]" ?></li>
+														<li><b>Lab Limit</b> <?php echo "$thisTuition[Llimit]" ?></li>
+														<li><b>Theory limit</b> <?php echo "$thisTuition[Tweight]" ?> </li>
 													</ul>
 												</div>
+												<?php if($_SESSION['roleID'] == 1 && $_SESSION['userID'] == $thisTuition['profID']) {?>
+													<div class="panel-body">
+													<a class="modal-with-form btn btn-success" href="#modalForm">Edit</a>
+
+													<!-- Modal Form -->
+													<div id="modalForm" class="col-md-5 pull-right  mfp-hide">
+														<section class="col-md-12 ">
+															<header class="panel-heading">
+																<h2 class="panel-title">Edit the tuition</h2>
+															</header>
+															<div class="panel-body">
+																<form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+																	<fieldset>
+																		<div class="form-group">
+																			<label class="col-md-8 center " for="profileFirstName">Theory Weight</label>
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control" id="profileFirstName">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-md-8 center" for="profileFirstName">Lab Weight</label>
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control" id="profileFirstName">
+																			</div>
+																		</div>
+																	</fieldset>
+																	<hr class="dotted tall">
+																	<fieldset>
+																		<div class="form-group">
+																			<label class="col-md-8 center" for="profileFirstName">Grade Limit Theory</label>
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control" id="profileFirstName">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-md-8 center" for="profileFirstName">Grade Limit Lab</label>
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control" id="profileFirstName">
+																			</div>
+																		</div>
+																	</fieldset>
+																</form>
+															</div>
+															<footer class="panel-footer">
+																<div class="row">
+																	<div class="col-md-12 text-right">
+																		<button class="btn btn-primary modal-confirm">Submit</button>
+																		<button class="btn btn-default modal-dismiss">Cancel</button>
+																	</div>
+																</div>
+															</footer>
+														</section>
+													</div>
+
+												</div>
+												<?php } ?>
+												
 											</div>
 										</div>
 										<!-- else we have to add a new one -->
@@ -227,24 +294,42 @@
 													</div>
 												</header>
 												<div class="panel-body">
-													<h3 class="text-semibold mt-none text-center">No tuition</h3>
-													<!-- message displays different if you are a teacher or the admin-->
+													<h3 class="text-semibold mt-none text-center">No tuition yet</h3>
+					
+													<!-- view only for admin-->
 													<?php 
-														if($_SESSION['roleID']==2){
-															echo("");
-														}else{
-															echo("for role id  = 1");
-														}
-													?>
-													<hr>
-													<div class="text-center">
-														<a href="tuition-add.php" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
-														<?php if ($_SESSION['roleID'] == 2){ ?>
-															<a href="#" class="btn btn-warning disabled"><i class="fa fa-exclamation"></i> Sent Reminders</a>
+														if($_SESSION['roleID']==3){ ?>
+															<h4 class=" mt-none text-center">Create a tuition for this yeat and assign it to a teacher.</h4>
+															<div class="form-group">
+															<label class="col-md-3 control-label" for="inputSuccess"></label>
+															<div class="col-md-6">
+																<select class="form-control mb-md">
+																<?php 
+																	
+																	$sql1 = "SELECT * FROM profesors";
+																	$result1 = mysqli_query($link,$sql1);
+																	while ($row = mysqli_fetch_array($result1)) {
+																		$profID = $row['profID'];
+																		$rank = $row['rank'];
+									
+																		$usID = $row['userID'];
+																		$sql2 = "SELECT * FROM users where userID='$usID'";
+																		$result2 = mysqli_query($link,$sql2);
+																		$row2 = mysqli_fetch_array($result2);
+									
+																		$fname = $row2['fname'];
+																		$lname = $row2['lname'];
+																		echo "<option value=\"{$usID}\" > ID: $usID $fname $lname</option>";
+																	}
+																?>	
+																</select>													
+															</div>
+														</div>
 
-														<?php } ?>
-
-													</div>
+														<div class="text-center">
+															<a href="new-tuition-process.php?<?php echo "subID=$subID&usID=$usID"?>" class="btn btn-success"><i class="fa fa-plus"></i> submit</a>
+														</div>
+													<?php } ?>
 												</div>
 											</section>
 										
@@ -260,48 +345,33 @@
 										<table class="table mb-none">
 											<thead>
 												<tr>
-													<th>#</th>
 													<th>tuitionID</th>
 													<th>Year</th>
 													<th>semester</th>
 													<th>Teacher</th>													
-													<th>actions</th>													
 												</tr>
 											</thead>
+
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Mark</td>
-													<td>Otto</td>
-													<td>@mdo</td>
-													<td>makis</td>
-													<td class="actions">
-														<a href=""><i class="fa fa-eye"></i></a>
-														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>Jacob</td>
-													<td>Thornton</td>
-													<td>@fat</td>
-													<td>takis</td>
-													<td class="actions">
-														<a href=""><i class="fa fa-eye"></i></a>
-														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Larry</td>
-													<td>the Bird</td>
-													<td>@twitter</td>
-													<td>kwstas</td>
-													<td class="actions">
-														<a href=""><i class="fa fa-eye"></i></a>
-														<a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
-													</td>
-												</tr>
+											<?php 
+												$tuitionsql2 = "SELECT * FROM tuition WHERE subID=$subID";
+												$tuition2 = mysqli_query($link,$tuitionsql2);
+												while($alltuitions = mysqli_fetch_array($tuition2)) {
+														$profID = $alltuitions['profID'];
+														$profsql = "SELECT * FROM users WHERE userID = $profID";
+														$prof = mysqli_query($link,$profsql);
+														$user2 = mysqli_fetch_array($prof);
+													?>
+
+													<tr>
+														<td><?php echo $alltuitions['tuiID']?></td>
+														<td><?php echo $alltuitions['year']?></td>
+														<td><?php echo $alltuitions['semester']?></td>
+														<td><?php echo "$user2[fname] $user2[lname]"?></td>
+												
+													</tr>
+													
+											<?php }	?>
 											</tbody>
 										</table>
 									
@@ -332,8 +402,11 @@
 		
 		<!-- Specific Page Vendor -->
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		<script src="assets/vendor/jquery-validation/jquery.validate.js"></script>
 		<script src="assets/vendor/select2/select2.js"></script>
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+		<script src="assets/javascripts/ui-elements/examples.modals.js"></script>
+
 
 
 		

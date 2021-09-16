@@ -1,16 +1,4 @@
 <!doctype html>
-<!--
-<?php 
-	include 'connect.php';
-	$subID = $_GET['subID'];
-	$sql = "SELECT * FROM `subject` where subID='$subID' ";
-	$result = mysqli_query($link,$sql);
-	$row  = mysqli_fetch_array($result);
-	$title = $row['title'];
-	$description = $row['description'];
-?>
--->
-
 <html class="fixed">
 	<head>
 
@@ -53,125 +41,52 @@
 	</head>
 	<body>
 		<section class="body">
-
-			<!-- start: header -->
-			<?php include "navbar.php" ?>
-			
-			<div class="inner-wrapper">
-				<!-- left sidebar -->
-				<?php include "left-sidebar.php" ?>
-
-
-				<section role="main" class="content-body">
-					<header class="page-header">
-						<h2>Subject</h2>
+			<!-- start: page -->
+			<form class="form-horizontal" method="get">		
+				<h4 class="mb-xlg">Grading</h4>
 					
-						<div class="right-wrapper pull-right">
-							<ol class="breadcrumbs">
-								<li>
-									<a href="index.html">
-										<i class="fa fa-home"></i>
-									</a>
-								</li>
-								<li><span>Pages</span></li>
-								<li><span>Maths</span></li>
-							</ol>
-					
-							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+				<fieldset>
+					<div class="form-group">
+						<label class="col-md-6 control-label" for="profileFirstName">Theory Weight</label>
+						<div class="col-md-2 pull-right">
+							<input type="text" class="form-control" id="profileFirstName">
 						</div>
-					</header>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="profileFirstName">Lab Weight</label>
+						<div class="col-md-2 pull-right">
+							<input type="text" class="form-control" id="profileFirstName">
+						</div>
+					</div>
+				</fieldset>
+				<hr class="dotted tall">
+				<fieldset>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="profileFirstName">Grade Limit Theory</label>
+						<div class="col-md-2 pull-right">
+							<input type="text" class="form-control" id="profileFirstName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="profileFirstName">Grade Limit Lab</label>
+						<div class="col-md-2 pull-right">
+							<input type="text" class="form-control" id="profileFirstName">
+						</div>
+					</div>
+				</fieldset>
+				<hr class="dotted tall">
 
-					<!-- start: page -->
-                    <h4 class="mb-xlg">Here you can add a new tuition for the lesson.</h4>
+				<div class="panel">
+					<div class="row">
+						<div class="col-md-9 col-md-offset-3">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="reset" class="btn btn-default">Save</button>
+						</div>
+					</div>
+				</div>
 
-                    <form class="form-horizontal" method="get">		
-                        <h4 class="mb-xlg">Subjects Tuitions </h4>
+			</form>
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="profileFirstName">Year</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="profileFirstName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="profileFirstName">Semester</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="profileFirstName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="profileFirstName">Teacher</label>
-                            <div class="col-md-5">
-                            <select data-plugin-selectTwo class="form-control populate">
-                                    <option value="kwstas">kwstas</option>
-                                    <option value="Giannhs">Giannhs</option>
-                                    <option value="Giwrgos">Giwrgos</option>
-                                    <option value="to maraki">to maraki</option>
-                                    <option value="elenh">elenh</option>
-                                    <option value="Aggelos">Aggelos</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="profileFirstName">Subject</label>
-                            <div class="col-md-5">
-                            <select data-plugin-selectTwo class="form-control populate">
-                                    <option value="kwstas">Maths</option>
-                                    <option value="Giannhs">Geometry</option>
-                                    <option value="Giwrgos">English</option>                                    
-                                </select>
-                            </div>
-                        </div>
-                            
-                        <hr class="dotted tall">
-                        <h4 class="mb-xlg">Vathmologia </h4>
-                        <fieldset>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="profileFirstName">Theory Weight</label>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" id="profileFirstName">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="profileFirstName">Lab Weight</label>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" id="profileFirstName">
-                                </div>
-                            </div>
-                        </fieldset>
-                        <hr class="dotted tall">
-                        <fieldset>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="profileFirstName">Grade Limit Theory</label>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" id="profileFirstName">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="profileFirstName">Grade Limit Lab</label>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" id="profileFirstName">
-                                </div>
-                            </div>
-                        </fieldset>
-                        <hr class="dotted tall">
-
-                        <div class="panel">
-                            <div class="row">
-                                <div class="col-md-9 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="reset" class="btn btn-default">Reset</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </form>
-					<!-- end: page -->
-				</section>
-			</div>
-            <!-- right side bar the one with the diary -->
-			<?php include "right-sidebar.php" ?>
 		</section>
 
 		<!-- Vendor -->
