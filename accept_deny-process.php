@@ -18,8 +18,9 @@
             $sql6 = "INSERT INTO students (userID) VALUES ($userID)";
 		    $result6 = mysqli_query($link,$sql6);  
         }
-              
-        echo("You authorized one! Good job Admin :) ");
+        
+        header("Location: index.php?error=2"); 
+        
         
     }
     elseif(isset($_POST['Deny'])) {
@@ -27,9 +28,7 @@
        
         $sql3 = "DELETE FROM `users` WHERE `users`.`userID` = $userID";
 		$result3 = mysqli_query($link,$sql3);
-        if($sql3){
-            echo "Deleted $userID";
-        }
+        header("Location: index.php"); 
     }
     else{
         echo("tuv");

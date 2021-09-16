@@ -83,7 +83,8 @@
 								<strong>Danger!</strong> Waiting for adming to aprove.
 								</div>
 								<?php
-							}	
+							}
+							
 						}
 					?>
 
