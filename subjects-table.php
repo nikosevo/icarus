@@ -3,6 +3,7 @@
 <?php 
 session_start();
 include "connect.php";
+
 ?>
 
 
@@ -122,10 +123,8 @@ include "connect.php";
 											<td><?php echo $row['title']; ?></td>
 											<td><?php echo $row['description']; ?></td>
 											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												<a href="subject.php?subID=<?php echo $subID ?>&edit=1" class="on-default"><i class="fa fa-pencil"></i></a>
+												<a href="subject-delete-process.php?subID=<?php echo $subID ?>" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 												<a href="subject.php?subID=<?php echo $subID ?>" class="on-default view-row"><i class="fa fa-eye"></i></a>
 											</td>
 										</tr>

@@ -3,6 +3,7 @@
 <?php 
 	include 'connect.php';
 	$subID = $_GET['subID'];
+	$edit = $_GET['edit'];
 	$sql = "SELECT * FROM `subject` where subID='$subID' ";
 	$result = mysqli_query($link,$sql);
 	$row  = mysqli_fetch_array($result);
@@ -32,6 +33,8 @@
 		<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+		<link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+
 
 		<!-- Specific Page Vendor CSS --> 
 		<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
@@ -91,7 +94,7 @@
 										<img src="assets/images/subject-default.jpg" class="rounded img-responsive" alt="John Doe">
 										<div class="thumb-info-title">
 											<span class="thumb-info-inner"><?php echo $title ;?></span>
-											<span class="thumb-info-type">Mathematics</span>
+											<span class="thumb-info-type">professorname</span>
 										</div>
 									</div>
 								</div>
@@ -103,10 +106,10 @@
 
 							<div class="tabs">
 								<ul class="nav nav-tabs tabs-primary">
-									<li class="active">
-										<a href="#overview" data-toggle="tab">Overview</a>
+									<li  <?php if($edit==0){echo "class=\"active\"";} ?> >
+										<a href="#overview" data-toggle="tab">Overview </a>
 									</li>
-									<li>
+									<li <?php if($edit==1){echo "class= \"active\"";} ?>>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
 									<li>
@@ -118,64 +121,81 @@
 								</ul>
 								<div class="tab-content">
 
-									<div id="overview" class="tab-pane active">
+									<div id="overview" class="tab-pane <?php if($edit==0){echo "active";} ?>">
 										
 
 										<h4 class="mb-xlg">About</h4>
+										<?php echo $edit?>
 
 										<p><?php echo $description ;?></p>
 									</div>
 
-									<div id="edit" class="tab-pane">
-
-										<form class="form-horizontal" method="get">		
-											<h4 class="mb-xlg">Subjects Information </h4>
-
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="profileFirstName">Title</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" id="profileFirstName">
-                                                </div>
+									<div id="edit" class="tab-pane <?php if($edit==1){echo "active";} ?>">
+										<form action="subject-edit-process.php?subID=<?php echo $subID ?>" method="post" enctype="multipart/form-data" class="form-horizontal" method="post" novalidate="novalidate">		
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="profileFirstName">Title</label>
+												<div class="col-md-3">
+													<input type="text" name="subjtitle" class="form-control input-sm" id="profileFirstName" value=<?php echo $title ?> required>
+												</div>
 											</div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="profileFirstName">Field</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" id="profileFirstName">
-                                                </div>
+											<div class="form-group">
+												<label class="col-md-3 control-label">Prerequisites</label>
+												<div class="col-md-6"> 
+													<select class="form-control" name="subject[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
+														<optgroup label="Subjects">
+															<?php 
+																$sql = "SELECT * FROM subject";
+																$result = mysqli_query($link,$sql);
+																while ($row = mysqli_fetch_array($result)) {
+																	$selected = false;
+																	$title = $row['title'];
+																	$currsubID = $row['subID'];
+																	$sql2 = "SELECT * FROM `prerequisites` where subID='$subID' ";
+																	$result2 = mysqli_query($link,$sql2);
+																	while($row2 = mysqli_fetch_array($result2)){
+																		if($row2['prerequisiteID'] == $currsubID){
+																			$selected = true;
+																		}
+																	}
+																	echo $row2;
+																	if($selected){
+																		echo "<option selected value=\"{$title}\">{$title}</option>";
+																		
+																	}else{
+																		echo "<option value=\"{$title}\">{$title}</option>";
+																		
+																	}
+															?>
+															
+															<?php } ?>
+														</optgroup>
+														
+													</select>
+												</div>
 											</div>
+										
 												
-	
 											<hr class="dotted tall">
-											<h4 class="mb-xlg">About </h4>
-											<fieldset>
-												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileBio">Description</label>
-													<div class="col-md-8">
-														<textarea class="form-control" rows="3" id="profileBio"></textarea>
-													</div>
+											
+											<div>
+												
+												<label class="col-md-3 control-label" for="profileBio">Subject Description</label>
+												<div class="col-md-8">
+													<textarea class="form-control" name="description" rows="3"> <?php echo $description ?> </textarea>
 												</div>
-												<div class="form-group">
-													<label class="col-xs-3 control-label mt-xs pt-none">Public</label>
-													<div class="col-md-8">
-														<div class="checkbox-custom checkbox-default checkbox-inline mt-xs">
-															<input type="checkbox" checked="" id="profilePublic">
-															<label for="profilePublic"></label>
-														</div>
-													</div>
-												</div>
-											</fieldset>
+												<br>
+											</div>
+											<hr class="dotted tall">
 
-											<div class="panel-footer">
+											<div class="panel">
 												<div class="row">
 													<div class="col-md-9 col-md-offset-3">
-														<button type="submit" class="btn btn-primary">Submit</button>
+														<button type="submit" name="save" value="insertsub" class="btn btn-primary">Submit</button>
 														<button type="reset" class="btn btn-default">Reset</button>
 													</div>
 												</div>
-											</div>
-
+											</div>                    
 										</form>
-
 									</div>
 
 									<div id="tuition" class="tab-pane">
@@ -313,6 +333,8 @@
 		<!-- Specific Page Vendor -->
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
 		<script src="assets/vendor/select2/select2.js"></script>
+		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+
 
 		
 		<!-- Theme Base, Components and Settings -->

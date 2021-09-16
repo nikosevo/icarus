@@ -2,8 +2,8 @@
 
 <?php   
 
-extract($_POST);
 include("connect.php");
+extract($_POST);
 if(isset($_POST['save']) && $_POST['save']== "insertsub")
 {
 	
@@ -11,14 +11,14 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 	if(mysqli_num_rows($sql)>0)
 	{	
 		
-		header("Location: pages-signup.php?error=1");
+		header("Location: subject-add.php?error=1");
 		exit;
 	}
 	else{
 		
 		mysqli_autocommit($link, false);
 		
-		$sql1 = "insert into subject(subID,title,description) values('','$subjtitle','$description')";
+		$sql1 = "insert into subject(title,description) values('$subjtitle','$description')";
 		$result1 = mysqli_query($link,$sql1) ;
 		if($result1){
 			mysqli_commit($link);
@@ -47,6 +47,7 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 		}else{
 			mysqli_rollback($link);
 			echo"<font color=\"#FF0000\"><strong><br>Canceled due to errors !<br></font>";
+			header("Location: subjects-table.php?status=fail");
 		}
 			
 			
@@ -137,11 +138,9 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 					</header>
 
 					<!-- start: page -->
-                    <h4 class="mb-xlg">Here you can add a new subject.</h4>
-
                     <form action="subject-add.php" method="post" enctype="multipart/form-data" class="form-horizontal" method="post" novalidate="novalidate">		
-                        <h4 class="mb-xlg">Subjects Tuitions </h4>
-
+                        <h2 class="mb-xlg center">Create new Subject</h2>
+						<hr>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="profileFirstName">Title</label>
                             <div class="col-md-3">
@@ -179,17 +178,16 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 							</div>
                             <br>
                         </div>
-					<hr class="dotted tall">
+						<hr class="dotted tall">
 
-                    <div class="panel">
-						<div class="row">
-							<div class="col-md-9 col-md-offset-3">
-								<button type="submit" name="save" value="insertsub" class="btn btn-primary">Submit</button>
-								<button type="reset" class="btn btn-default">Reset</button>
+						<div class="panel">
+							<div class="row">
+								<div class="col-md-9 col-md-offset-3">
+									<button type="submit" name="save" value="insertsub" class="btn btn-primary">Submit</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</div>
 							</div>
-						</div>
-                    </div>                    
-
+						</div>                    
                     </form>
                     
 					<!-- end: page -->
@@ -218,6 +216,10 @@ if(isset($_POST['save']) && $_POST['save']== "insertsub")
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		<script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+		<script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+
+		
+
 
 
 
