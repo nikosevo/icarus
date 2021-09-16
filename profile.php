@@ -1,4 +1,59 @@
 <!doctype html>
+
+<?php 
+	include 'connect.php';
+
+	
+
+
+	$stdID = $_GET['stdID'];
+	$roleD = $_GET['role'];
+
+	if($roleD==1){
+		$sql = "SELECT * FROM `profesors` where profID='$stdID' ";
+		$result = mysqli_query($link,$sql);
+		$row  = mysqli_fetch_array($result);
+		$usrID = $row['userID'];
+		$rank = $row['rank'];
+
+		$sql1 = "SELECT * FROM `users` where userID='$usrID' ";
+		$result1 = mysqli_query($link,$sql1);
+		$row1  = mysqli_fetch_array($result1);
+		$fname = $row1['fname'];
+		$lname = $row1['lname'];
+
+	}
+	elseif($roleD==2){
+		$sql = "SELECT * FROM `students` where stdID='$stdID' ";
+		$result = mysqli_query($link,$sql);
+		$row  = mysqli_fetch_array($result);
+		$usrID = $row['userID'];
+		$sch_number = $row['sch_number'];
+
+		$sql1 = "SELECT * FROM `users` where userID='$usrID' ";
+		$result1 = mysqli_query($link,$sql1);
+		$row1  = mysqli_fetch_array($result1);
+		$fname = $row1['fname'];
+		$lname = $row1['lname'];
+
+	}
+	elseif($roleD==3){
+		
+
+		$sql1 = "SELECT * FROM `users` where userID='$stdID' ";
+		$result1 = mysqli_query($link,$sql1);
+		$row1  = mysqli_fetch_array($result1);
+		$fname = $row1['fname'];
+		$lname = $row1['lname'];
+
+	}
+
+	
+	
+	
+
+?>
+
 <html class="fixed">
 	<head>
 
@@ -79,8 +134,28 @@
 									<div class="thumb-info mb-md">
 										<img src="assets/images/!logged-user.jpg" class="rounded img-responsive" alt="John Doe">
 										<div class="thumb-info-title">
-											<span class="thumb-info-inner">Nikordis</span>
-											<span class="thumb-info-type">admin</span>
+											<?php 
+											if($roleD==1){?>
+												<span class="thumb-info-inner"><?php echo $fname , " " ,  $lname; ?></span>
+												<span class="thumb-info-type"><?php echo $rank?></span>	
+											<?php
+											}
+											?>
+											<?php 
+											if($roleD==2){?>
+												<span class="thumb-info-inner"><?php echo $fname , " " ,  $lname; ?></span>
+												<span class="thumb-info-type"><?php echo $sch_number?></span>	
+											<?php
+											}
+											?>
+											<?php 
+											if($roleD==3){?>
+												<span class="thumb-info-inner"><?php echo $fname , " " ,  $lname; ?></span>
+												<span class="thumb-info-type">admin</span>	
+											<?php
+											}
+											?>
+											
 										</div>
 									</div>
 
@@ -101,12 +176,15 @@
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
 									<li>
-										<a href="#declaration" data-toggle="tab">Declararion</a>
+										<a href="#declaration" data-toggle="tab">Registration</a>
 									</li>
 									
 								</ul>
+
 								<div class="tab-content">
 									<div id="overview" class="tab-pane active">
+										<?php 
+										if($roleD==2){?>
 										<h4 class="mb-md">Update Status</h4>
 												
 										<div class="panel-body">
@@ -115,87 +193,87 @@
 													<thead>
 														<tr>
 															<th>#</th>
-															<th>First Name</th>
-															<th>Last Name</th>
-															<th>Username</th>
+															<th>Subject Name</th>
+															<th>Grade</th>
+															<th>Passed/Not Passed</th>
 														</tr>
 													</thead>
 													<tbody>
+
+<!-- //////////////////////////////////////////////////////////////// -->
+													<?php
+														$sql5 = "SELECT * FROM isregistered where stdID='$stdID' ";
+														$result5 = mysqli_query($link,$sql5);
+														while ($row5 = mysqli_fetch_array($result5)) {
+															$Fgrade = $row5["Fgrade"];
+															if($Fgrade>=5){
+																$pass="Passed";
+															}
+															else{$pass="Not Passed";}
+															$tuiID = $row5["tuiID"];
+															$regID =$row5["regID"];
+
+															$sql4 = "SELECT * FROM tuition where tuiID='$tuiID' ";
+															$result4 = mysqli_query($link,$sql4);
+															$row4 = mysqli_fetch_array($result4);
+															$subID = $row4["subID"];
+															$semester = $row4["semester"];
+
+															$sql3 = "SELECT * FROM `subject` where subID='$subID' ";
+															$result3 = mysqli_query($link,$sql3);
+															$row3 = mysqli_fetch_array($result3);
+															$title = $row3["title"];
+													?>
+<!-- ////////////////////////////////////////////////////////////////-->
 														<tr>
-															<td>1</td>
-															<td>Mark</td>
-															<td>Otto</td>
-															<td>@mdo</td>
+															<td><?php echo $regID ?></td>
+															<td><?php echo $title ?></td>
+															<td><?php echo $Fgrade ?></td>
+															<td><?php echo $pass ?></td>
 														</tr>
-														<tr>
-															<td>2</td>
-															<td>Jacob</td>
-															<td>Thornton</td>
-															<td>@fat</td>
-														</tr>
-														<tr>
-															<td>3</td>
-															<td>Larry</td>
-															<td>the Bird</td>
-															<td>@twitter</td>
-														</tr>
+														<?php } ?>	
 													</tbody>
 												</table>
 											</div>
+											
 										</div>
-
+										<?php
+											}
+										?>
 										
 
 									
 									</div>
 									<div id="edit" class="tab-pane">
 
-										<form class="form-horizontal" method="get">
+									<form  action="profile-update.php?uid=<?php echo $usrID ?>&stid=<?php echo $stdID ?>&role=<?php echo $roleD ?>" method="post" enctype="multipart/form-data"  class="form-horizontal" >
 											<h4 class="mb-xlg">Personal Information</h4>
 											<fieldset>
 												<div class="form-group">
 													<label class="col-md-3 control-label" for="profileFirstName">First Name</label>
 													<div class="col-md-8">
-														<input type="text" class="form-control" id="profileFirstName">
+														<input type="text" class="form-control" name="fname" id="profileFirstName" autocomplete="off" value=<?php echo $fname?>>
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileLastName">Last Name</label>
+													<label class="col-md-3 control-label" for="profileLastName" >Last Name</label>
 													<div class="col-md-8">
-														<input type="text" class="form-control" id="profileLastName">
+														<input type="text" class="form-control" name="lname" id="profileLastName" autocomplete="off" value=<?php echo $lname?>>
 													</div>
 												</div>
-												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileAddress">Address</label>
+												<?php
+												if($roleD==1){
+												?>
+													<div class="form-group">
+													<label class="col-md-3 control-label" for="profileLastName" >Last Name</label>
 													<div class="col-md-8">
-														<input type="text" class="form-control" id="profileAddress">
+														<input type="text" class="form-control" name="rank" id="rank" autocomplete="off" value=<?php echo $rank?>>
 													</div>
-												</div>
-												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileCompany">Company</label>
-													<div class="col-md-8">
-														<input type="text" class="form-control" id="profileCompany">
 													</div>
-												</div>
-											</fieldset>
-											<hr class="dotted tall">
-											<h4 class="mb-xlg">About Yourself</h4>
-											<fieldset>
-												<div class="form-group">
-													<label class="col-md-3 control-label" for="profileBio">Biographical Info</label>
-													<div class="col-md-8">
-														<textarea class="form-control" rows="3" id="profileBio"></textarea>
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="col-xs-3 control-label mt-xs pt-none">Public</label>
-													<div class="col-md-8">
-														<div class="checkbox-custom checkbox-default checkbox-inline mt-xs">
-															<input type="checkbox" checked="" id="profilePublic">
-															<label for="profilePublic"></label>
-														</div>
-													</div>
-												</div>
+												<?php
+												}
+												?>
+												
 											</fieldset>
 											<hr class="dotted tall">
 											<h4 class="mb-xlg">Change Password</h4>
@@ -203,20 +281,20 @@
 												<div class="form-group">
 													<label class="col-md-3 control-label" for="profileNewPassword">New Password</label>
 													<div class="col-md-8">
-														<input type="text" class="form-control" id="profileNewPassword">
+														<input type="password" class="form-control" name="npwd" id="profileNewPassword" autocomplete="off">
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-3 control-label" for="profileNewPasswordRepeat">Repeat New Password</label>
 													<div class="col-md-8">
-														<input type="text" class="form-control" id="profileNewPasswordRepeat">
+														<input type="password" class="form-control" name="npwd2" id="profileNewPasswordRepeat" autocomplete="off">
 													</div>
 												</div>
 											</fieldset>
 											<div class="panel-footer">
 												<div class="row">
 													<div class="col-md-9 col-md-offset-3">
-														<button type="submit" class="btn btn-primary">Submit</button>
+														<button type="submit" name="save" value="profileUP" class="btn btn-primary">Submit</button>
 														<button type="reset" class="btn btn-default">Reset</button>
 													</div>
 												</div>
@@ -293,6 +371,7 @@
 
 									</div>
 								</div>
+								
 							</div>
 						</div>
 						<div class="col-md-12 col-lg-3">

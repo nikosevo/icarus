@@ -130,7 +130,7 @@ include "connect.php";
 												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
 												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
 												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-												<a href="profile.php" class="on-default view-row"><i class="fa fa-eye"></i></a>
+												<a href="profile.php?stdID=<?php echo $profID ?>&role=1" class="on-default view-row"><i class="fa fa-eye"></i></a>
 
 											</td>
 										</tr>
