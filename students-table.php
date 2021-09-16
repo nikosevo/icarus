@@ -111,6 +111,7 @@ include "connect.php";
 									while ($row = mysqli_fetch_array($result1)) {
 									$sch_number = $row['sch_number'];
 									$year_enrolled = $row['year_enrolled'];
+									$stdID = $row['stdID'];
 									
 									$usID = $row['userID'];
 									$sql2 = "SELECT * FROM users where userID='$usID'";
@@ -130,7 +131,7 @@ include "connect.php";
 												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
 												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
 												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-												<a href="profile.php" class="on-default view-row"><i class="fa fa-eye"></i></a>
+												<a href="profile.php?stdID=<?php echo $stdID ?>&role=2" class="on-default view-row"><i class="fa fa-eye"></i></a>
 
 											</td>
 										</tr>
