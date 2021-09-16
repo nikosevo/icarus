@@ -130,8 +130,15 @@
 													</div>
 													<span class="button title"><?php echo $username ?> just signed up</span>
 													
-													<button type="button" class="btn btn-xs btn-success" tabindex="-1">Accept</button>
-													<button type="button" class="btn btn-xs btn-danger" tabindex="-1">Deny</button>
+													
+													<!-- <button type="button" class="btn btn-xs btn-success" tabindex="-1">Accept</button> -->
+													
+													<form method="POST" action="accept_deny-process.php">
+														<input type="submit" class="btn btn-xs btn-success" tabindex="-1" name="Accept" value="Accept"/>
+														<input type="submit" class="btn btn-xs btn-danger" tabindex="-1" name="Deny" value="Deny"/>
+														<input type="hidden" name="id" value="<?php echo $usID ?>" />
+													</form>
+													
 													<?php } ?>
 												</a>
 											</li>
