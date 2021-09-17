@@ -314,14 +314,14 @@
 									?>
 									
 									<div id="declaration" class="tab-pane">
-										<form action="registration-update.php" method="post" enctype="multipart/form-data"  class="form-horizontal">
+										<form action="registration-update.php?stid=<?php echo $stdID ?>" method="post" enctype="multipart/form-data"  class="form-horizontal">
 
 											<h4 class="mb-lg">Declaration.</h4>
 											<h5 class="mb-lg">Here you can choose in which subjects you will be tested this semester.</h4>
 
 											<div class="form-group">
 												<div class="col-md-5">
-													<select class="form-control"  name="subject[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
+													<select class="form-control"  name="subjects[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
 														<optgroup label="Subjects">
 <!-- //////////////////////////////////////////////////////////////// -->
 													<?php
