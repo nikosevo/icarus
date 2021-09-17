@@ -225,7 +225,8 @@
 														<li><b>Theory limit</b> <?php echo "$thisTuition[Tlimit]" ?> </li>
 													</ul>
 												</div>
-												<?php if($_SESSION['roleID'] == 1 && $_SESSION['userID'] == $thisTuition['profID']) {?>
+												<!-- editing the tuition --> 
+												<?php if($_SESSION['roleID'] == 1 || $_SESSION['roleID'] == 3 && $_SESSION['userID'] == $thisTuition['profID']) {?>
 												<div class="panel-body">
 													<a class="modal-with-form btn btn-success" href="#modalForm">Edit</a>
 
@@ -240,14 +241,14 @@
 																	<fieldset>
 																		<div class="form-group">
 																			<label class="col-md-8 center " for="profileFirstName">Lab Weight</label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Lweight"autocomplete="off" >
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Lweight" value=" <?php echo "$thisTuition[Lweight]" ?>" >
 																			</div>
 																		</div>
 																		<div class="form-group">
 																			<label class="col-md-8 center" for="profileFirstName">Theory Weight</label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Tweight" autocomplete="off">
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tweight" value=" <?php echo "$thisTuition[Tweight]" ?>">
 																			</div>
 																		</div>
 																	</fieldset>
@@ -255,14 +256,14 @@
 																	<fieldset>
 																		<div class="form-group">
 																			<label class="col-md-8 center" for="profileFirstName">Lab Limit </label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Llimit" autocomplete="off">
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Llimit" value=" <?php echo "$thisTuition[Llimit]" ?>">
 																			</div>
 																		</div>
 																		<div class="form-group">
 																			<label class="col-md-8 center" for="profileFirstName">Theory Limit</label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Tlimit" autocomplete="off">
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tlimit" value=" <?php echo "$thisTuition[Tlimit]" ?>">
 																			</div>
 																		</div>
 																	</fieldset>
@@ -310,7 +311,6 @@
 																	$result1 = mysqli_query($link,$sql1);
 																	while ($row = mysqli_fetch_array($result1)) {
 																		$profID = $row['profID'];
-																		$rank = $row['rank'];
 									
 																		$usID = $row['userID'];
 																		$sql2 = "SELECT * FROM users where userID='$usID'";
