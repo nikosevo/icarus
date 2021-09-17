@@ -222,15 +222,15 @@
 														<li><b>Lab Weight</b> <?php echo "$thisTuition[Lweight]" ?></li>
 														<li><b>Theory Weight</b> <?php echo "$thisTuition[Tweight]" ?></li>
 														<li><b>Lab Limit</b> <?php echo "$thisTuition[Llimit]" ?></li>
-														<li><b>Theory limit</b> <?php echo "$thisTuition[Tweight]" ?> </li>
+														<li><b>Theory limit</b> <?php echo "$thisTuition[Tlimit]" ?> </li>
 													</ul>
 												</div>
 												<?php if($_SESSION['roleID'] == 1 && $_SESSION['userID'] == $thisTuition['profID']) {?>
-													<div class="panel-body">
+												<div class="panel-body">
 													<a class="modal-with-form btn btn-success" href="#modalForm">Edit</a>
 
 													<!-- Modal Form -->
-													<div id="modalForm" class="col-md-5 pull-right  mfp-hide">
+													<form id="modalForm" action="tuition-edit.php?subID=<?php echo $subID?>" method="post" enctype="multipart/form-data"  class="col-md-4 col-md-offset-4  mfp-hide">
 														<section class="col-md-12 ">
 															<header class="panel-heading">
 																<h2 class="panel-title">Edit the tuition</h2>
@@ -239,30 +239,30 @@
 																<form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
 																	<fieldset>
 																		<div class="form-group">
-																			<label class="col-md-8 center " for="profileFirstName">Theory Weight</label>
-																			<div class="col-md-4 pull-right">
-																				<input type="text" class="form-control" id="profileFirstName">
+																			<label class="col-md-8 center " for="profileFirstName">Lab Weight</label>
+																			<div class="col-md-3 pull-right">
+																				<input type="text" class="form-control input-sm" name="Lweight"autocomplete="off" >
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-md-8 center" for="profileFirstName">Lab Weight</label>
-																			<div class="col-md-4 pull-right">
-																				<input type="text" class="form-control" id="profileFirstName">
+																			<label class="col-md-8 center" for="profileFirstName">Theory Weight</label>
+																			<div class="col-md-3 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tweight" autocomplete="off">
 																			</div>
 																		</div>
 																	</fieldset>
 																	<hr class="dotted tall">
 																	<fieldset>
 																		<div class="form-group">
-																			<label class="col-md-8 center" for="profileFirstName">Grade Limit Theory</label>
-																			<div class="col-md-4 pull-right">
-																				<input type="text" class="form-control" id="profileFirstName">
+																			<label class="col-md-8 center" for="profileFirstName">Lab Limit </label>
+																			<div class="col-md-3 pull-right">
+																				<input type="text" class="form-control input-sm" name="Llimit" autocomplete="off">
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-md-8 center" for="profileFirstName">Grade Limit Lab</label>
-																			<div class="col-md-4 pull-right">
-																				<input type="text" class="form-control" id="profileFirstName">
+																			<label class="col-md-8 center" for="profileFirstName">Theory Limit</label>
+																			<div class="col-md-3 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tlimit" autocomplete="off">
 																			</div>
 																		</div>
 																	</fieldset>
@@ -271,13 +271,13 @@
 															<footer class="panel-footer">
 																<div class="row">
 																	<div class="col-md-12 text-right">
-																		<button class="btn btn-primary modal-confirm">Submit</button>
+																		<button type="submit" name="save" value="insert" class="btn btn-primary">Submit</button>
 																		<button class="btn btn-default modal-dismiss">Cancel</button>
 																	</div>
 																</div>
 															</footer>
 														</section>
-													</div>
+													</form>
 
 												</div>
 												<?php } ?>
