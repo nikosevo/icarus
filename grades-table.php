@@ -118,7 +118,7 @@ include "connect.php";
 									$row3 = mysqli_fetch_array($result3);
 
 									$profID = $row3["profID"];
-									$sql2 = "SELECT * FROM tuition where profID='$profID' and `year`='2021'";
+									$sql2 = "SELECT * FROM tuition where profID='$usID' and `year`='2021'";
 									$result2 = mysqli_query($link,$sql2);
 									while ($row2 = mysqli_fetch_array($result2)) {
 									

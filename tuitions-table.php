@@ -113,7 +113,7 @@ include "connect.php";
 									$subj = $row['subID'];
 									$prof = $row['profID'];
 									
-									$sql3 = "SELECT * FROM profesors where profID='$prof'";
+									$sql3 = "SELECT * FROM profesors where userID='$prof'";
 									$result3 = mysqli_query($link,$sql3);
 									$row3 = mysqli_fetch_array($result3);
 
