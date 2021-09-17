@@ -314,70 +314,64 @@
 									?>
 									
 									<div id="declaration" class="tab-pane">
-										<form>
+										<form action="registration-update.php" method="post" enctype="multipart/form-data"  class="form-horizontal">
 
 											<h4 class="mb-lg">Declaration.</h4>
 											<h5 class="mb-lg">Here you can choose in which subjects you will be tested this semester.</h4>
 
 											<div class="form-group">
 												<div class="col-md-5">
-													<select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
-														<optgroup label="Mathematics">
-															<option value="analysis">Analysis</option>
-															<option value="algebra">Linear Algebra</option>
-															<option value="discrete">Discrete Mathematics</option>
-															<option value="numerical">Numerical Analysis</option>
-															<option value="probability">Probability Theory</option>
-														</optgroup>
-														<optgroup label="Computer Science">
-															<option value="programming">Introduction to Programming</option>
-															<option value="automata">Automata Theory</option>
-															<option value="complexity">Complexity Theory</option>
-															<option value="software">Software Engineering</option>
+													<select class="form-control"  name="subject[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
+														<optgroup label="Subjects">
+<!-- //////////////////////////////////////////////////////////////// -->
+													<?php
+														$sql8 = "SELECT * FROM tuition where `year`= year(curdate()) AND semester = month(curdate()) % 2 + 1 ";
+														$result8 = mysqli_query($link,$sql8);
+														while ($row8 = mysqli_fetch_array($result8)) { 
+														$subjID = $row8["subID"]	;
+														
+														$sql9 = "SELECT * FROM `subject` where subID=$subjID";
+														$result9 = mysqli_query($link,$sql9);	
+														$row9 = mysqli_fetch_array($result9);
+													?>
+
+														<option value=<?php echo $subjID ?>><?php echo $row9['title'] ?></option>
+														<?php 
+														}
+														?>
 														</optgroup>
 													</select>
 												</div>
 											</div>
 
-											<!-- or if it is final--> 
+											
+											<hr class="dotted short">
+
+											
+											<button type="submit" name="save" value="save" class="btn">Save</button>
+											<button type="submit" name="save" value="final" class="btn btn-primary">Submit</button>
+											
+										</form>
+										
+										<!-- or if it is final--> 
 	
 											<table class="table table-hover mb-none">
 												<thead>
 													<tr>
 														<th>#</th>
-														<th>First Name</th>
-														<th>Last Name</th>
-														<th>Username</th>
+														<th>Title</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
 														<td>1</td>
-														<td>Mark</td>
-														<td>Otto</td>
-														<td>@mdo</td>
+														<td>Mark</td>														
 													</tr>
-													<tr>
-														<td>2</td>
-														<td>Jacob</td>
-														<td>Thornton</td>
-														<td>@fat</td>
-													</tr>
-													<tr>
-														<td>3</td>
-														<td>Larry</td>
-														<td>the Bird</td>
-														<td>@twitter</td>
-													</tr>
+													
 												</tbody>
 											</table>
 										
 
-											<hr class="dotted short">
-
-											<button class="btn">Save</button>
-											<button class="btn btn-primary">Submit</button>
-										</form>
 
 									</div>
 									<?php 
