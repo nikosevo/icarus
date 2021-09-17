@@ -15,7 +15,7 @@ profile.php den exo valei elenxo gia to an kanei edit o admin
 den exo kanei na leitourgei to registration
 
 ///////nikos
-subject.php edit tuition
+subject.php on admin...choose the selected value from the box 
 
 
 
