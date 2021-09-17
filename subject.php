@@ -225,7 +225,8 @@
 														<li><b>Theory limit</b> <?php echo "$thisTuition[Tlimit]" ?> </li>
 													</ul>
 												</div>
-												<?php if($_SESSION['roleID'] == 1 && $_SESSION['userID'] == $thisTuition['profID']) {?>
+												<!-- editing the tuition --> 
+												<?php if($_SESSION['roleID'] == 1 || $_SESSION['roleID'] == 3 && $_SESSION['userID'] == $thisTuition['profID']) {?>
 												<div class="panel-body">
 													<a class="modal-with-form btn btn-success" href="#modalForm">Edit</a>
 
@@ -240,14 +241,14 @@
 																	<fieldset>
 																		<div class="form-group">
 																			<label class="col-md-8 center " for="profileFirstName">Lab Weight</label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Lweight"autocomplete="off" >
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Lweight" value=" <?php echo "$thisTuition[Lweight]" ?>" >
 																			</div>
 																		</div>
 																		<div class="form-group">
 																			<label class="col-md-8 center" for="profileFirstName">Theory Weight</label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Tweight" autocomplete="off">
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tweight" value=" <?php echo "$thisTuition[Tweight]" ?>">
 																			</div>
 																		</div>
 																	</fieldset>
@@ -255,14 +256,14 @@
 																	<fieldset>
 																		<div class="form-group">
 																			<label class="col-md-8 center" for="profileFirstName">Lab Limit </label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Llimit" autocomplete="off">
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Llimit" value=" <?php echo "$thisTuition[Llimit]" ?>">
 																			</div>
 																		</div>
 																		<div class="form-group">
 																			<label class="col-md-8 center" for="profileFirstName">Theory Limit</label>
-																			<div class="col-md-3 pull-right">
-																				<input type="text" class="form-control input-sm" name="Tlimit" autocomplete="off">
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tlimit" value=" <?php echo "$thisTuition[Tlimit]" ?>">
 																			</div>
 																		</div>
 																	</fieldset>
@@ -287,7 +288,7 @@
 										<!-- else we have to add a new one -->
 										<?php }else{ ?>
 											
-											<section class="panel">
+											<form id="modalForm" action="new-tuition-process.php?subID=<?php echo $subID?>" method="post" enctype="multipart/form-data" class="panel">
 												<header class="panel-heading bg-white">
 													<div class="panel-heading-icon bg-primary mt-sm">
 														<i class="fa fa-warning"></i>
@@ -303,14 +304,13 @@
 															<div class="form-group">
 															<label class="col-md-3 control-label" for="inputSuccess"></label>
 															<div class="col-md-6">
-																<select class="form-control mb-md">
+																<select name="subject" class="form-control mb-md">
 																<?php 
 																	
 																	$sql1 = "SELECT * FROM profesors";
 																	$result1 = mysqli_query($link,$sql1);
 																	while ($row = mysqli_fetch_array($result1)) {
 																		$profID = $row['profID'];
-																		$rank = $row['rank'];
 									
 																		$usID = $row['userID'];
 																		$sql2 = "SELECT * FROM users where userID='$usID'";
@@ -327,11 +327,11 @@
 														</div>
 
 														<div class="text-center">
-															<a href="new-tuition-process.php?<?php echo "subID=$subID&usID=$usID"?>" class="btn btn-success"><i class="fa fa-plus"></i> submit</a>
+															<button class="btn btn-success"><i class="fa fa-plus"></i> submit</button>
 														</div>
 													<?php } ?>
 												</div>
-											</section>
+											</formn>
 										
 
 										<?php } ?>

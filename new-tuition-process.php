@@ -1,7 +1,8 @@
 <?php
 include("connect.php");
 $subID = $_GET['subID'];
-$usID = $_GET['usID'];
+extract($_POST);
+$usID = $_POST['subject'];
 
 $sql="INSERT INTO tuition (year,semester,Tweight,Lweight,Tlimit,Llimit,subID,profID)
 VALUES (year(curdate()),month(curdate())%2 + 1,0,0,0,0, $subID , $usID)";
