@@ -363,11 +363,34 @@
 													</tr>
 												</thead>
 												<tbody>
+<!-- //////////////////////////////////////////////////////////////// -->
+												<?php
+													$sqll = "SELECT * FROM isregistered where stdID='$stdID' AND final=1 ";
+													$resultl = mysqli_query($link,$sqll);
+													while ($rowl = mysqli_fetch_array($resultl)) {
+														
+														$tuiID1 = $rowl["tuiID"];
+														$regID1 =$rowl["regID"];
+
+														$sql10 = "SELECT * FROM tuition where tuiID='$tuiID1' ";
+														$result10 = mysqli_query($link,$sql10);
+														$row10 = mysqli_fetch_array($result10);
+														$subID1 = $row10["subID"];
+														
+
+														$sql11 = "SELECT * FROM `subject` where subID='$subID1' ";
+														$result11 = mysqli_query($link,$sql11);
+														$row11 = mysqli_fetch_array($result11);
+														 
+												?>
+<!-- ////////////////////////////////////////////////////////////////-->
 													<tr>
-														<td>1</td>
-														<td>Mark</td>														
+														<td><?php echo $regID1 ?></td>
+														<td><?php echo $row11["title"] ?></td>														
 													</tr>
-													
+													<?php
+													}
+													?>
 												</tbody>
 											</table>
 										
