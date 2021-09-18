@@ -318,31 +318,52 @@
 
 											<h4 class="mb-lg">Declaration.</h4>
 											<h5 class="mb-lg">Here you can choose in which subjects you will be tested this semester.</h4>
-
 											<div class="form-group">
-												<div class="col-md-5">
-													<select class="form-control"  name="subjects[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
+												<label class="col-md-3 control-label">Prerequisites</label>
+												<div class="col-md-6"> 
+													<select class="form-control" name="subjects[]" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
 														<optgroup label="Subjects">
-<!-- //////////////////////////////////////////////////////////////// -->
-													<?php
-														$sql8 = "SELECT * FROM tuition where `year`= year(curdate()) AND semester = month(curdate()) % 2 + 1 ";
-														$result8 = mysqli_query($link,$sql8);
-														while ($row8 = mysqli_fetch_array($result8)) { 
-														$subjID = $row8["subID"]	;
-														
-														$sql9 = "SELECT * FROM `subject` where subID=$subjID";
-														$result9 = mysqli_query($link,$sql9);	
-														$row9 = mysqli_fetch_array($result9);
-													?>
 
-														<option value=<?php echo $subjID ?>><?php echo $row9['title'] ?></option>
-														<?php 
-														}
-														?>
+															<?php 
+															$sql8 = "SELECT * FROM tuition where `year`= year(curdate()) AND semester = month(curdate()) % 2 + 1 ";
+															$result8 = mysqli_query($link,$sql8);
+															while ($row8 = mysqli_fetch_array($result8)) { 
+																	$selected = false;
+																	$subjID = $row8["subID"];
+																	$tuiID = $row8['tuiID'];
+
+																	$sql10 = "SELECT * FROM `isregistered` WHERE stdID=$stdID and tuiID=$tuiID";
+																	$result10 = mysqli_query($link,$sql10);
+																	
+																	
+																	
+																	while($row10 = mysqli_fetch_array($result10)){
+																		if($row10['tuiID'] == $tuiID){
+																			$selected = true;
+																		}
+																	}
+																	$sql9 = "SELECT * FROM `subject` where subID='$subjID' ";
+																	$result9 = mysqli_query($link,$sql9);	
+																	$row9 = mysqli_fetch_array($result9);
+																	$title= $row9['title'];
+
+																	if($selected){
+																		echo "<option selected value=\"{$subjID}\">{$title}</option>";
+																		
+																	}else{
+																		echo "<option value=\"{$subjID}\">{$title}</option>";
+																		
+																	}
+															?>
+															
+															<?php } ?>
 														</optgroup>
+														
 													</select>
 												</div>
 											</div>
+
+											
 
 											
 											<hr class="dotted short">
