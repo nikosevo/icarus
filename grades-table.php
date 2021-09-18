@@ -204,7 +204,7 @@ include "connect.php";
 											$row7 = mysqli_fetch_array($result7);
 											$fname= $row7["fname"];
 											$lname= $row7["lname"];
-											?>	
+									?>	
 											<tr class="gradeX">
 												<td><?php echo $sch ;?></td>
 												<td><?php echo $fname ," " , $lname ; ?></td>
