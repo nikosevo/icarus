@@ -111,25 +111,27 @@ include "connect.php";
                                         <option value="AK">-No subject Selected-</option>
 <!-- //////////////////////////////////////////////////////////// -->
 									<?php 
-									$usID = $_SESSION["userID"];
+										$usID = $_SESSION["userID"];
 
-									$sql3 = "SELECT * FROM profesors where userID='$usID'";
-									$result3 = mysqli_query($link,$sql3);
-									$row3 = mysqli_fetch_array($result3);
+										$sql3 = "SELECT * FROM profesors where userID='$usID'";
+										$result3 = mysqli_query($link,$sql3);
+										$row3 = mysqli_fetch_array($result3);
 
-									$profID = $row3["profID"];
-									$sql2 = "SELECT * FROM tuition where profID='$usID' and `year`='2021'";
-									$result2 = mysqli_query($link,$sql2);
-									while ($row2 = mysqli_fetch_array($result2)) {
-									
-									$tuiID= $row2["tuiID"];
-									$subID = $row2["subID"];
-									$sql1 = "SELECT * FROM subject where subID='$subID'";
-									$result1 = mysqli_query($link,$sql1);
-									$row = mysqli_fetch_array($result1);
-									$subID = $row['subID'];
-									$title = $row['title'];
-									$description = $row['description'];
+										$sql2 = "SELECT * FROM tuition where profID='$usID' and `year`='2021'";
+										$result2 = mysqli_query($link,$sql2);
+										while ($row2 = mysqli_fetch_array($result2)) {
+										
+										$tuiID= $row2["tuiID"];
+										$subID = $row2["subID"];
+										$sql1 = "SELECT * FROM subject where subID='$subID'";
+										$result1 = mysqli_query($link,$sql1);
+										$row = mysqli_fetch_array($result1);
+										$subID = $row['subID'];
+										$title = $row['title'];
+										$description = $row['description'];
+										$tui = NULL;
+
+						
 									?>
 <!-- //////////////////////////////////////////////////////////// -->		
                                         <option value="grades-table.php?choice=<?php echo $tuiID ?>"><?php echo $title ?></option>
@@ -189,6 +191,7 @@ include "connect.php";
 											$Lgrade = $row5["Lgrade"];
 											$Fgrade = $row5["Fgrade"];
 											$stdID = $row5["stdID"];
+											$regID = $row5['regID'];
 
 											$sql6 = "SELECT * FROM students where stdID='$stdID'";
 											$result6 = mysqli_query($link,$sql6);
@@ -208,21 +211,50 @@ include "connect.php";
 												<td><?php echo $Lgrade; ?></td>
 												<td><?php echo $Tgrade; ?></td>
 												<td><?php echo $Fgrade; ?></td>
+
 												<td class="actions">
-													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#modalForm<?php echo $regID?>" class="modal-with-form"><i class="fa fa-pencil"></i></a>
 													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+													<form id="modalForm<?php echo $regID?>" action="edit-grades-process.php?regID=<?php echo $regID?>" method="post" enctype="multipart/form-data"  class="col-md-4 col-md-offset-4  mfp-hide">
+														<section class="col-md-12 ">
+															<header class="panel-heading">
+																<h2 class="panel-title">Edit the tuition</h2>
+															</header>
+															<div class="panel-body">
+																<form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+																	<fieldset>
+																		<div class="form-group">
+																			<label class="col-md-8 center " for="profileFirstName">Lab Grade</label>
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Tgrade" value=" <?php echo $row5["Lgrade"];?>" >
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-md-8 center" for="profileFirstName">Theory Grade</label>
+																			<div class="col-md-4 pull-right">
+																				<input type="text" class="form-control input-sm" name="Lgrade" value=" <?php echo $row5["Tgrade"];?>">
+																			</div>
+																		</div>
+																	</fieldset>
+																</form>
+															</div>
+															<footer class="panel-footer">
+																<div class="row">
+																	<div class="col-md-12 text-right">
+																		<button type="submit" name="save" value="insert" class="btn btn-primary">Submit</button>
+																		<button class="btn btn-default modal-dismiss">Cancel</button>
+																	</div>
+																</div>
+															</footer>
+														</section>
+													</form>
 												</td>
 											</tr>	
+											
+											
+
+
 										<?php } ?>
-										
-										
-									
-									
-									
-									
-									
 								</tbody>
 							</table>
 							<hr>
@@ -275,6 +307,8 @@ include "connect.php";
 		<script src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+		<script src="assets/javascripts/ui-elements/examples.modals.js"></script>
+
 
 
 		
@@ -292,7 +326,6 @@ include "connect.php";
 		<!-- Examples -->
 		<script src="assets/javascripts/tables/examples.datatables.editable.js"></script>
 		<script src="assets/javascripts/tables/examples.datatables.ajax.js"></script>
-		<script src="assets/javascripts/ui-elements/examples.modals.js"></script>
 
 
 	</body>
