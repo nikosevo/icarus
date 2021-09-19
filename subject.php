@@ -1,7 +1,10 @@
 <!doctype html>
 
 <?php 
+	session_start();
 	include 'connect.php';
+	
+
 	$subID = $_GET['subID'];
 	$edit = $_GET['edit'];
 	$sql = "SELECT * FROM `subject` where subID='$subID' ";
@@ -109,9 +112,11 @@
 									<li  <?php if($edit==0){echo "class=\"active\"";} ?> >
 										<a href="#overview" data-toggle="tab">Overview </a>
 									</li>
+									<?php if($_SESSION['roleID'] == 3 || ($_SESSION['roleID'] == 1 && $_SESSION['userID'] == "")) {?>
 									<li <?php if($edit==1){echo "class= \"active\"";} ?>>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
+									<?php } ?>
 									<li>
 										<a href="#tuition" data-toggle="tab">Tuition</a>
 									</li>
@@ -129,7 +134,8 @@
 
 										<p><?php echo $description ;?></p>
 									</div>
-
+									<?php if($_SESSION['roleID'] == 3 || ($_SESSION['roleID'] == 1 && $_SESSION['userID'] == "")) {?>
+									
 									<div id="edit" class="tab-pane <?php if($edit==1){echo "active";} ?>">
 										<form action="subject-edit-process.php?subID=<?php echo $subID ?>" method="post" enctype="multipart/form-data" class="form-horizontal" method="post" novalidate="novalidate">		
 											<div class="form-group">
@@ -197,6 +203,10 @@
 											</div>                    
 										</form>
 									</div>
+
+
+									<?php } ?>
+									
 
 									<div id="tuition" class="tab-pane">
 										<!-- if there is a tution running then good-->
