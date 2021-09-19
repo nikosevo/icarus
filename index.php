@@ -89,10 +89,18 @@
 					?>
 
 					<?php 
+					
+					
 						if($_SESSION['roleID']==0){
 							include "dashboard-visitor.php";
 						}else if($_SESSION['roleID']==2){
+							$yr = NULL;
+							if(isset($_GET['choice'])) {
+							$yr = $_GET['choice'];	
+							
+							}
 							include "dashboard-student.php";
+							
 						}else if($_SESSION['roleID']==1){
 							include "dashboard-prof.php";
 						}else if($_SESSION['roleID']==3){
