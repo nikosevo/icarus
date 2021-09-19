@@ -90,13 +90,23 @@ include "connect.php";
 								<h2 class="panel-title">Default</h2>
 							</header>
 							<div class="panel-body">
-								<div class="row">
+							<?php 
+							
+							if($_SESSION["roleID"]==0||$_SESSION["roleID"]==2){
+							
+							}
+							else{?>
+							<div class="row">
 									<div class="col-sm-6">
 										<div class="mb-md">
 											<a href="subject-add.php" class="btn btn-primary">Add <i class="fa fa-plus"></i></a>
 										</div>
 									</div>
 								</div>
+							<?php
+							}
+							?>
+								
 								<table class="table table-bordered table-striped mb-none" id="datatable-editable">
 									<thead>
 										<tr>
@@ -123,8 +133,15 @@ include "connect.php";
 											<td><?php echo $row['title']; ?></td>
 											<td><?php echo $row['description']; ?></td>
 											<td class="actions">
+											<?php 
+							
+											if($_SESSION["roleID"]==0||$_SESSION["roleID"]==2){
+											
+											}
+											else{?>
 												<a href="subject.php?subID=<?php echo $subID ?>&edit=1" class="on-default"><i class="fa fa-pencil"></i></a>
 												<a href="subject-delete-process.php?subID=<?php echo $subID ?>" class="on-default "><i class="fa fa-trash-o"></i></a>
+												<?php } ?>
 												<a href="subject.php?subID=<?php echo $subID ?>" class="on-default view-row"><i class="fa fa-eye"></i></a>
 											</td>
 										</tr>

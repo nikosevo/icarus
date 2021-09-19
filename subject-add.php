@@ -2,6 +2,11 @@
 
 <?php   
 
+
+if($_SESSION["roleID"]==0||$_SESSION["roleID"]==2){
+header("Location: pages-404.html");
+}
+
 include("connect.php");
 extract($_POST);
 if(isset($_POST['save']) && $_POST['save']== "insertsub")
