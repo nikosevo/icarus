@@ -3,6 +3,9 @@
 <?php 
 session_start();
 include "connect.php";
+if($_SESSION["roleID"]==0||$_SESSION["roleID"]==2){
+header("Location: pages-404.html");
+}
 ?>
 
 <html class="fixed">
