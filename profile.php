@@ -169,9 +169,17 @@
 
 							<div class="tabs">
 								<ul class="nav nav-tabs tabs-primary">
+									
+								<?php 
+								if($roleD==2){
+									?>
 									<li class="active">
 										<a href="#overview" data-toggle="tab">Overview</a>
 									</li>
+									<?php 
+									}
+									?>
+									
 									<li>
 										<a href="#edit" data-toggle="tab">Edit</a>
 									</li>
@@ -188,9 +196,10 @@
 								</ul>
 
 								<div class="tab-content">
-									<div id="overview" class="tab-pane active">
+									
 										<?php 
 										if($roleD==2){?>
+										<div id="overview" class="tab-pane active">
 										<h4 class="mb-md">Update Status</h4>
 												
 										<div class="panel-body">
@@ -243,13 +252,14 @@
 											</div>
 											
 										</div>
+										</div>
 										<?php
 											}
 										?>
 										
 
 									
-									</div>
+									
 									<div id="edit" class="tab-pane">
 
 									<form  action="profile-update.php?uid=<?php echo $usrID ?>&stid=<?php echo $stdID ?>&role=<?php echo $roleD ?>" method="post" enctype="multipart/form-data"  class="form-horizontal" >
@@ -444,12 +454,48 @@
 						<div class="col-md-12 col-lg-3">
 							<h4 class="mb-md">Stats</h4>
 							<?php if($roleD==1){
-
+								$sql2 = "SELECT (Count(profID)* 100 / (Select Count(*) From `tuition` INNER JOIN isregistered ON tuition.tuiID=isregistered.tuiID where tuition.profID='$usrID')) as Persentage FROM `tuition` INNER JOIN isregistered ON tuition.tuiID=isregistered.tuiID where tuition.profID='$usrID' AND isregistered.Fgrade>=5 ";
+								$result2 = mysqli_query($link,$sql2);
+								$row2  = mysqli_fetch_array($result2);
+								
+								$sql12 = "SELECT Count(tuiID) as Current FROM `tuition`  where tuition.profID='$usrID' AND  `year`= year(curdate()) AND semester = month(curdate()) % 2 + 1 ";
+								$result12 = mysqli_query($link,$sql12);
+								$row12  = mysqli_fetch_array($result12);
+								?>
+								<ul class="simple-card-list mb-xlg">
+								<li class="primary">
+									<h3><?php echo $row12["Current"] ?></h3>
+									<p>Lessons you have this year</p>
+								</li>
+								<li class="primary">
+									<h3><?php echo $row2["Persentage"] ?> %</h3>
+									<p>Percentage of student passed your subjects </p>
+								</li>
+								
+							</ul>
+							<?php
 							}
 							?>
 
 							<?php if($roleD==2){
-
+								$sql2 = "SELECT (Count(*)* 100 / (Select Count(*) From isregistered where stdID='$stdID')) as Persentage From isregistered where stdID='$stdID'  AND isregistered.Fgrade>=5 ";
+								$result2 = mysqli_query($link,$sql2);
+								$row2  = mysqli_fetch_array($result2);
+								
+								$sql12 = "SELECT Count(regID) as Passed FROM `isregistered`  where stdID='$stdID' AND isregistered.Fgrade>=5 ";
+								$result12 = mysqli_query($link,$sql12);
+								$row12  = mysqli_fetch_array($result12);
+								?>
+								<ul class="simple-card-list mb-xlg">
+								<li class="primary">
+									<h3><?php echo $row12["Passed"] ?></h3>
+									<p>Subjects you have passed</p>
+								</li>
+								<li class="primary">
+									<h3><?php echo $row2["Persentage"] ?> %</h3>
+									<p>Percentage of subjects you have passed   </p>
+								</li>
+							<?php
 							}
 							?>
 							<?php if($roleD==3){
@@ -459,20 +505,7 @@
 							
 
 							
-							<ul class="simple-card-list mb-xlg">
-								<li class="primary">
-									<h3>33</h3>
-									<p>All declared lessons</p>
-								</li>
-								<li class="primary">
-									<h3>21</h3>
-									<p>successed</p>
-								</li>
-								<li class="primary">
-									<h3>12</h3>
-									<p>Still pending</p>
-								</li>
-							</ul>
+							
 						</div>
 
 					</div>
