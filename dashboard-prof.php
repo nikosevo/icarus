@@ -8,54 +8,73 @@
         </header>
         <div class="panel-body">
 
+<!-- //////////////////////////////////////////////////////// -->
+        <?php 
+            $usrID=$_SESSION['userID'];
+            // $sql = "SELECT tuiID FROM `isregistered` INNER JOIN students ON students.stdID=isregistered.stdID where students.userID='$usrID' ";
+            $sqlr = "SELECT stdID FROM `students`  where students.userID='$usrID' ";
+            $resultr = mysqli_query($link,$sqlr);
+            $rowr  = mysqli_fetch_array($resultr);
+            $stID = $rowr["stdID"];
+           
+            
+            
+        ?>
+<!-- //////////////////////////////////////////////////////// -->
+
+
             <!-- Morris: Bar -->
             <div class="chart chart-md" id="morrisBar"></div>
             <script type="text/javascript">
-
+                <?php
+                $sql = "SELECT DISTINCT year FROM tuition  WHERE profID=$usrID ";
+                $result = mysqli_query($link,$sql);
+                while($row  = mysqli_fetch_array($result)){
+                ?>
                 var morrisBarData = [{
                     y: '2004',
                     a: 10,
-                    b: 30
+                    
                 }, {
                     y: '2005',
                     a: 100,
-                    b: 25
+                   
                 }, {
                     y: '2006',
                     a: 60,
-                    b: 25
+                   
                 }, {
                     y: '2007',
                     a: 75,
-                    b: 35
+                   
                 }, {
                     y: '2008',
                     a: 90,
-                    b: 20
+                    
                 }, {
                     y: '2009',
                     a: 75,
-                    b: 15
+                   
                 }, {
                     y: '2010',
                     a: 50,
-                    b: 10
+                    
                 }, {
                     y: '2011',
                     a: 75,
-                    b: 25
+                    
                 }, {
                     y: '2012',
                     a: 30,
-                    b: 10
+                    
                 }, {
                     y: '2013',
                     a: 75,
-                    b: 5
+                   
                 }, {
                     y: '2014',
                     a: 60,
-                    b: 8
+                   
                 }];
 
                 // See: assets/javascripts/ui-elements/examples.charts.js for more settings.
