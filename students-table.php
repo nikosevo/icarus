@@ -87,13 +87,13 @@ include "connect.php";
 								<h2 class="panel-title">Default</h2>
 							</header>
 							<div class="panel-body">
-								<div class="row">
+								<!-- <div class="row">
 									<div class="col-sm-6">
 										<div class="mb-md">
 											<button id="addToTable" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<table class="table table-bordered table-striped mb-none" id="datatable-editable">
 									<thead>
 										<tr>
@@ -127,9 +127,9 @@ include "connect.php";
 											<td><?php echo $row2['fname'] ," " ,$row2['lname']; ?></td>
 											<td><?php echo $row['year_enrolled']; ?></td>
 											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+												<!-- <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
 												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a> -->
 												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 												<a href="profile.php?stdID=<?php echo $stdID ?>&role=2" class="on-default view-row"><i class="fa fa-eye"></i></a>
 
