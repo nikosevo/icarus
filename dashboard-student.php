@@ -55,19 +55,19 @@
 										],
 										color: '#2baab1'
 									}
-									// , {
-									// 	label: "Series 3",
-									// 	data: [
-									// 		[1, 15]
-									// 	],
-									// 	color: '#734ba9'
-									// }, {
-									// 	label: "Series 4",
-									// 	data: [
-									// 		[1, 15]
-									// 	],
-									// 	color: '#E36159'
-									// }];
+									, {
+										label: "Series 3",
+										data: [
+											[1, 15]
+										],
+										color: '#734ba9'
+									}, {
+										label: "Series 4",
+										data: [
+											[1, 15]
+										],
+										color: '#E36159'
+									}];
 				
 									// See: assets/javascripts/ui-elements/examples.charts.js for more settings.
 				

@@ -203,7 +203,7 @@
 										<h4 class="mb-md">Update Status</h4>
 												
 										<div class="panel-body">
-											<div class="table-responsive">
+											<div id= "tab" class="table-responsive">
 												<table class="table table-hover mb-none">
 													<thead>
 														<tr>
@@ -214,11 +214,18 @@
 														</tr>
 													</thead>
 													<tbody>
-
 <!-- //////////////////////////////////////////////////////////////// -->
 													<?php
+
+														$sqlAv = "SELECT AVG(Fgrade) 'average' FROM isregistered where stdID='$stdID' and Fgrade > 5";
+														$resultAv = mysqli_query($link,$sqlAv);
+														$rowAv = mysqli_fetch_array($resultAv);
+
+														$average = $rowAv['average'];
+
 														$sql5 = "SELECT * FROM isregistered where stdID='$stdID' ";
 														$result5 = mysqli_query($link,$sql5);
+
 														while ($row5 = mysqli_fetch_array($result5)) {
 															$Fgrade = $row5["Fgrade"];
 															if($Fgrade>=5){
@@ -246,10 +253,18 @@
 															<td><?php echo $Fgrade ?></td>
 															<td><?php echo $pass ?></td>
 														</tr>
-														<?php } ?>	
+														<?php } ?>
+														<tr>
+															<td></td>
+															<td>average Passed</td>
+															<td><?php echo $average ?></td>
+															<td><?php if($average>8){echo "excellent";}else{echo "good";}?></td>
+														</tr>	
 													</tbody>
 												</table>
+												<br>
 											</div>
+											<input type="button" value="Create PDF" id="btPrint" onclick="createPDF()" />
 											
 										</div>
 										</div>
@@ -543,6 +558,7 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+		<script src="assets/javascripts/exportTable.js"></script>
 
 		<script src="assets/javascripts/forms/examples.advanced.form.js" ></script>
 
