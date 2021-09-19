@@ -271,7 +271,7 @@
 												if($roleD==1){
 												?>
 													<div class="form-group">
-													<label class="col-md-3 control-label" for="profileLastName" >Last Name</label>
+													<label class="col-md-3 control-label" for="profileLastName" >Rank</label>
 													<div class="col-md-8">
 														<input type="text" class="form-control" name="rank" id="rank" autocomplete="off" value=<?php echo $rank?>>
 													</div>
@@ -314,6 +314,57 @@
 									?>
 									
 									<div id="declaration" class="tab-pane">
+									<?php
+										$sqll = "SELECT * FROM isregistered where stdID='$stdID' AND final=1 ";
+										$resultl = mysqli_query($link,$sqll);
+										if($rowl = mysqli_fetch_array($resultl)){
+										?>
+										
+									<table class="table table-hover mb-none">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Title</th>
+													</tr>
+												</thead>
+												<tbody>
+<!-- //////////////////////////////////////////////////////////////// -->
+												<?php
+													$sqll = "SELECT * FROM isregistered where stdID='$stdID' AND final=1 ";
+													$resultl = mysqli_query($link,$sqll);
+													
+													while ($rowl = mysqli_fetch_array($resultl)) {
+														
+														$tuiID1 = $rowl["tuiID"];
+														$regID1 =$rowl["regID"];
+
+														$sql10 = "SELECT * FROM tuition where tuiID='$tuiID1' ";
+														$result10 = mysqli_query($link,$sql10);
+														$row10 = mysqli_fetch_array($result10);
+														$subID1 = $row10["subID"];
+														
+
+														$sql11 = "SELECT * FROM `subject` where subID='$subID1' ";
+														$result11 = mysqli_query($link,$sql11);
+														$row11 = mysqli_fetch_array($result11);
+														 
+												?>
+<!-- ////////////////////////////////////////////////////////////////-->
+													<tr>
+														<td><?php echo $regID1 ?></td>
+														<td><?php echo $row11["title"] ?></td>														
+													</tr>
+													<?php
+													}
+													?>
+												</tbody>
+											</table>
+											
+											<?php 
+											}
+											else{
+											?>
+											
 										<form action="registration-update.php?stid=<?php echo $stdID ?>" method="post" enctype="multipart/form-data"  class="form-horizontal">
 
 											<h4 class="mb-lg">Declaration.</h4>
@@ -374,49 +425,14 @@
 											
 										</form>
 										
-										<!-- or if it is final--> 
+										
 	
-											<table class="table table-hover mb-none">
-												<thead>
-													<tr>
-														<th>#</th>
-														<th>Title</th>
-													</tr>
-												</thead>
-												<tbody>
-<!-- //////////////////////////////////////////////////////////////// -->
-												<?php
-													$sqll = "SELECT * FROM isregistered where stdID='$stdID' AND final=1 ";
-													$resultl = mysqli_query($link,$sqll);
-													while ($rowl = mysqli_fetch_array($resultl)) {
-														
-														$tuiID1 = $rowl["tuiID"];
-														$regID1 =$rowl["regID"];
-
-														$sql10 = "SELECT * FROM tuition where tuiID='$tuiID1' ";
-														$result10 = mysqli_query($link,$sql10);
-														$row10 = mysqli_fetch_array($result10);
-														$subID1 = $row10["subID"];
-														
-
-														$sql11 = "SELECT * FROM `subject` where subID='$subID1' ";
-														$result11 = mysqli_query($link,$sql11);
-														$row11 = mysqli_fetch_array($result11);
-														 
-												?>
-<!-- ////////////////////////////////////////////////////////////////-->
-													<tr>
-														<td><?php echo $regID1 ?></td>
-														<td><?php echo $row11["title"] ?></td>														
-													</tr>
-													<?php
-													}
-													?>
-												</tbody>
-											</table>
+											
 										
 
-
+										<?php 
+										}
+										?>
 									</div>
 									<?php 
 									}
@@ -426,8 +442,23 @@
 							</div>
 						</div>
 						<div class="col-md-12 col-lg-3">
-
 							<h4 class="mb-md">Stats</h4>
+							<?php if($roleD==1){
+
+							}
+							?>
+
+							<?php if($roleD==2){
+
+							}
+							?>
+							<?php if($roleD==3){
+
+							}
+							?>
+							
+
+							
 							<ul class="simple-card-list mb-xlg">
 								<li class="primary">
 									<h3>33</h3>
