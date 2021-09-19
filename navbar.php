@@ -15,6 +15,10 @@
 		$firstname = $row['fname']; 
 		$lastname  = $row['lname']; 
 		$role="profesor" ;	
+
+		$sql3=mysqli_query($link,"SELECT * FROM profesors where userID='$userID' ");
+		$row3  = mysqli_fetch_array($sql3);
+		$stid = $row3["profID"];
 	}
 	elseif($roleID==2){
 		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
@@ -22,6 +26,10 @@
 		$firstname = $row['fname']; 
 		$lastname  = $row['lname']; 
 		$role="student" ;
+
+		$sql3=mysqli_query($link,"SELECT * FROM students where userID='$userID' ");
+		$row3  = mysqli_fetch_array($sql3);
+		$stid = $row3["stdID"];
 	}
 	elseif($roleID==3){
 		$sql=mysqli_query($link,"SELECT * FROM users where userID='$userID' ");
@@ -81,7 +89,7 @@
 							<ul class="list-unstyled">
 								<li class="divider"></li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="profile.php"><i class="fa fa-user"></i> My Profile</a>
+									<a role="menuitem" tabindex="-1" href="profile.php?stdID=<?php echo $stid ?>&role=<?php echo $roleID ?>"><i class="fa fa-user"></i> My Profile</a>
 								</li>
 								<li>
 									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>

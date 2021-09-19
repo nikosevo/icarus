@@ -14,8 +14,8 @@
         $row2=mysqli_fetch_array($sql2);
 
         if($row2){
-            $sql4=mysqli_query($link,"DELETE * FROM isregistered where stdID=$stid");
-            $row4=mysqli_fetch_array($sql4);  
+            $sql4=mysqli_query($link,"DELETE FROM isregistered where stdID=$stid");
+              
         }
         
 		foreach ($_POST['subjects'] as $subjects){
@@ -49,12 +49,14 @@
 		
 	} 
     elseif(isset($_POST['save']) && $_POST['save']== "final"){
-        $sql5=mysqli_query($link,"SELECT * FROM isregistered where stdID=$stid");
-        $row5=mysqli_fetch_array($sql5);
-        while($row2){
+        $result5=mysqli_query($link,"SELECT * FROM isregistered where stdID=$stid");
+        
+        while($row5=mysqli_fetch_array($result5)){
             $regid=$row5["regID"];
             $sql5=mysqli_query($link,"UPDATE isregistered SET final=1 where regID=$regid");
-            $row5=mysqli_fetch_array($sql5);
+            
         }
+        header("Location: profile.php?stdID=$stid&role=2");
+        exit();
     }
 ?>
