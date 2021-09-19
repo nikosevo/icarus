@@ -42,8 +42,7 @@ $tuitioncount = $data3['total'];
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
-                                <?php if($_SESSION['roleID'] == 3 || ($_SESSION['roleID'] == 1 && $_SESSION['userID'] == "")) {?>
-                                    
+
                                 <li>
                                     <a href="subjects-table.php">
                                         <span class="pull-right label label-primary"><?php echo $subjectcount ?></span>
@@ -51,6 +50,9 @@ $tuitioncount = $data3['total'];
                                         <span>subjects</span>
                                     </a>
                                 </li>
+                                <?php if($_SESSION['roleID'] == 3 || ($_SESSION['roleID'] == 1 && $_SESSION['userID'] == "")) {?>
+                                    
+                                
                                 
                                 <li>
                                     <a href="students-table.php">
