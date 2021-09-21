@@ -236,7 +236,7 @@
 													</ul>
 												</div>
 												<!-- editing the tuition --> 
-												<?php if($_SESSION['roleID'] == 1 || $_SESSION['roleID'] == 3 && $_SESSION['userID'] == $thisTuition['profID']) {?>
+												<?php if($_SESSION['roleID'] == 3 ||($_SESSION['roleID'] == 1 && $_SESSION['userID'] == $thisTuition['profID']) ) {?>
 												<div class="panel-body">
 													<a class="modal-with-form btn btn-success" href="#modalForm">Edit</a>
 
