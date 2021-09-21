@@ -117,7 +117,7 @@ include "connect.php";
 									$result3 = mysqli_query($link,$sql3);
 									$row3 = mysqli_fetch_array($result3);
 
-									$sql4 = "SELECT * FROM subject where subID='$subj'";
+									$sql4 = "SELECT * FROM `subject` where subID='$subj'";
 									$result4 = mysqli_query($link,$sql4);
 									$row4 = mysqli_fetch_array($result4);
 									
